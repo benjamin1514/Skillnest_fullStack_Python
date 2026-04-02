@@ -1,2 +1,4 @@
-a = 10 +1 
-a += 
+lenguaje = "Hola de nuevo Python"
+print(lenguaje)
+numero = 20
+print(numero)
