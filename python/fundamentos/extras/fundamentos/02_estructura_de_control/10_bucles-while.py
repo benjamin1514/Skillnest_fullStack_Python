@@ -42,3 +42,13 @@ El break se puede utilizar tanto para bucles for como para while.
 El break suele utilizarse cuando sucede 
 alguna condición externa que demanda salir del bucle de manera inmediata.
 '''
+
+x = 6
+
+while x > 2:
+    print(x)
+    x -= 1
+    if x == 3:
+        break
+else: #Recuerda: Solo se ejecuta en una salida normal, NO en un break
+    print("Sentencia final")
