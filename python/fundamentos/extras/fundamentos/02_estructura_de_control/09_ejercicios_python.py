@@ -106,13 +106,110 @@ def sumatoriaCentinal():
 Pide al usuario una frase o palabra. 
 Utiliza un bucle para recorrer la cadena y contar cuántas vocales tiene en total.
 '''
-
 def contadorVocales():
-    palabra = input("Indique una palabra: ")
+    palabra = input("Indique una palabra: ").lower()
     vocales = "aeiouáéíóú"
-    for a in a:
-        print(i, vocales[i])
+    contarVocales = 0
 
+    for caracter in palabra:
+        if caracter in vocales:
+            contarVocales += 1  # Este espacio es la clave
+
+    print(f"La frase {palabra} contiene {contarVocales} vocales")
+    
+'''
+8. Validación de Contraseña
+Define una contraseña en una variable. Pide al usuario que la intente adivinar. 
+Tienes un máximo de 3 intentos; si falla los 3, bloquea el acceso.
+'''
+
+def validar():
+    contraseña = "hola1234"
+    for i in range(3):
+        usuario = input("Intente adivinar la contraseña(3 Intentos):")
+        if usuario == contraseña:
+            print("Adivinaste la contraseña!")
+            return
+        else:
+            print("Contraseña incorrecta! intente denuevo")
+    print("No adivinaste la contraseña")
+
+
+'''
+9. Registro de Nombres
+Crea un arreglo vacío. Pide al usuario que ingrese 5 nombres. 
+Guárdalos en el arreglo y, al final, imprímelos en orden inverso al que fueron ingresados.
+'''
+
+def registroNombres():
+    nombre = []
+    for i in range(5):
+        user = input("Ingrese 5 nombres: ")
+        nombre.append(user)
+    print(nombre)
+    
+'''
+10. Promedio de Notas
+Solicita al usuario cuántas notas desea ingresar. Almacena cada nota en un arreglo. 
+Al finalizar, calcula y muestra el promedio, la nota más alta y la más baja.
+'''
+
+def promedio(): 
+    cantidadNotas = int(input("Ingrese la cantidad de notas: "))
+    arrNotas = []
+    notasSuma = 0
+    for i in range(cantidadNotas):
+        ingresarNotas = float(input("Ingrese las notas: "))
+        arrNotas.append(ingresarNotas)
+        notasSuma += ingresarNotas
+    promedio = notasSuma / cantidadNotas
+    print(f"{ingresarNotas}, \n{promedio} \n{max(arrNotas)} {min(arrNotas)} {arrNotas}")
+
+
+'''
+11. Filtro de Arreglos
+Dado un arreglo de números generado por el usuario, 
+crea un nuevo arreglo que contenga solo los números que sean mayores a 50. Muestra ambos arreglos.
+'''
+
+def filtroArreglo():
+    cantidad = int(input("¿Cuantos números desea ingresar? "))
+    mayor50 = []
+    nUser = []
+    for i in range(1, cantidad + 1):
+        arrayUsuario = int(input("Ingrese un número: "))
+        if arrayUsuario > 50:
+            mayor50.append(arrayUsuario)
+        else:
+            nUser.append(arrayUsuario)
+    print(f"Valores ingresados por el ususario: {nUser} \nValores mayor a 50: {mayor50}")
+    
+'''
+12. Buscador de Elementos
+Crea una lista de 10 ciudades.
+Pide al usuario que ingrese el nombre de una ciudad y 
+el programa debe decir si la ciudad se encuentra en la lista y en qué índice (posición) está.
+'''
+
+def buscadorCiudades():
+    ciudades = ["Nairobi", "Tokio", "Santiago", "Lima", "Caracas", "Rio", "Berlin", "Seul", "Buenos aires"]
+    ciudad = input("Ingrese el nombre de la ciudad(con mayuscula al principio): ").capitalize()
+    esta = ciudades.index(ciudad)
+    if esta < len(ciudades):
+        print(f"Tu ciudad esta en el arreglo, en la posición {esta}")
+    else:
+        print("Tu ciudad no esta")
+
+
+'''
+13. Simulación de Inventario
+Crea dos arreglos: uno para nombres_productos y otro para precios. 
+Permite al usuario ingresar 3 productos con sus precios. 
+Luego, muestra una lista formateada: Producto: [Nombre] - Precio: $[Valor].
+'''
+
+def inventario(): 
+    
 
 continuar = True
 
@@ -157,19 +254,19 @@ while continuar:
         contadorVocales()
     elif opcion == "8":
         print("\nEjecutando ejercicio 8")
-        print()
+        validar()
     elif opcion == "9":
         print("\nEjecutando ejercicio 9")
-        print()
+        registroNombres()
     elif opcion == "10":
         print("\nEjecutando ejercicio 10")
-        print()
+        promedio()
     elif opcion == "11":
         print("\nEjecutando ejercicio 11")
-        print()
+        filtroArreglo()
     elif opcion == "12":
         print("\nEjecutando ejercicio 12")
-        print()
+        buscadorCiudades()
     elif opcion == "13":
         print("\nEjecutando ejercicio 13")
         print()
