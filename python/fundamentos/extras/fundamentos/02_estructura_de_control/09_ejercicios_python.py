@@ -209,7 +209,60 @@ Luego, muestra una lista formateada: Producto: [Nombre] - Precio: $[Valor].
 '''
 
 def inventario(): 
-    
+    nombres_productos = []
+    precios = []
+
+    for i in range(3):
+        nombre = input("Nombre del producto: ")
+        precio = float(input("Precio: "))
+        nombres_productos.append(nombre)
+        precios.append(precio)
+    print("\nInventario:")
+    for i in range(3):
+        print(f"Producto: {nombres_productos[i]} - Precio {precios[i]}")
+
+
+'''
+14. Generador de Lista de Compras
+Usa un bucle while para que el usuario agregue artículos a una lista de compras. 
+El proceso termina cuando el usuario escribe "terminar". Al final, 
+muestra la lista ordenada alfabéticamente.
+'''
+
+def listaCompra():
+    lista = []
+    while True:
+        item = input("Articulo (o 'terminar')")
+        if item.lower() == "terminar":
+            break
+        lista.append(item)
+    print(f"Ordenada: {sorted(lista)}")
+
+
+'''
+15. Análisis de Temperaturas
+Solicita las temperaturas de los 7 días de la semana y guárdalas en un arreglo. Muestra:
+El promedio semanal.
+Cuántos días la temperatura fue superior a 25 grados.
+El día con la temperatura más baja (asumiendo que el índice 0 es Lunes).
+'''
+
+def analisisTem():
+    dias = ["Lunes","Martes","Miercoles","Jueves","Viernes","Sabado","Domingo"]
+    temps = []
+    for i in range(len(dias)):
+        valor = float(input(f"Temperaturas del {dias[i]}:"))
+        temps.append(valor)
+    promedio = sum(temps) / len(temps)
+    calurosos = 0
+    for t in temps:
+        if t > 25:
+            calurosos += 1
+    diaFrio = dias[temps.index(min(temps))]
+    print(f"Promedio: {promedio:.1f}")
+    print(f"Dias > 25°: {calurosos}")
+    print(f"Mas frio: {diaFrio} ({min(temps)}°))")
+
 
 continuar = True
 
@@ -269,13 +322,13 @@ while continuar:
         buscadorCiudades()
     elif opcion == "13":
         print("\nEjecutando ejercicio 13")
-        print()
+        inventario()
     elif opcion == "14":
         print("\nEjecutando ejercicio 14")
-        print()
+        listaCompra()
     elif opcion == "15":
         print("\nEjecutando ejercicio 15")
-        print()
+        analisisTem()
     elif opcion == "0":
         print("Saliendo...")
         continuar = False
