@@ -7,10 +7,20 @@ usando ejemplos inspirados en videojuegos y situaciones atractivas.
 # Imprime todos los niveles del 0 al 100 (incluyendo el 100).
 # (Tu código aquí)
 
+def generadorNiveles(): 
+    for i in range(1, 100 + 1):
+        print(f"Nivel: {i}")
 
 # 2. Potenciadores de energía (Múltiplos de 2)
 # Imprime los números múltiplos de 2 desde 2 hasta 500 (incluyendo el 500).
 # (Tu código aquí)
+
+def pares():
+    limite = 500
+    
+    for i in range(2, limite + 1, 2):
+        if i % 2 == 0:
+            print(i)
 
 
 # 3. Trampa de emojis
@@ -21,13 +31,14 @@ usando ejemplos inspirados en videojuegos y situaciones atractivas.
 # (Tu código aquí)
 
 def trampaEmoji():
-    for i in range(1, 100):
-        if i % 5 == 0:
-            print("Es divisible por 5")
-        elif i % 10 == 0:
+    for i in range(1, 100 + 1):
+        if i % 10 == 0:
             print("Es divisible por 10")
+        elif i % 5 == 0:
+            print("Es divisible por 5")
         else:
-            print("No es un número")
+            print(i)
+
 
 # 4. Suma colosal
 # Suma todos los números pares del 0 al 500,000 e imprime la suma total.
@@ -42,7 +53,7 @@ def sumaPares():
             sumaPares += i
     print(f"La suma de los números pares hasta {limite} es: {sumaPares}")
 
-sumaPares()
+
 
 # 5. Retroceso temporal
 # Desde 2024, retrocede de 3 en 3 hasta 0 o menos.
@@ -59,5 +70,43 @@ def retrocesoTemporal():
 # Imprime los números en el rango que sean múltiplos de 'salto'.
 # (Tu código aquí)
 
+def contadorDinamico():
+    inicio = 7
+    fin = 30
+    salto = 4
+
+    for i in range(inicio, fin + 1):
+        if i % salto == 0:
+            print(i)
+
 # Ejemplo: si inicio = 3, fin = 10, y salto = 2
 # Se imprimiría: 4, 6, 8, 10
+
+
+continuar = True
+
+while continuar:
+    opcion = input("\n---- Elige una opción: (1-6) (0 para salir) =")
+    if opcion == "1":
+        print("\nEjecutando ejercicio 1:")
+        generadorNiveles()
+    elif opcion == "2":
+        print("\nEjecutando ejercicio 1:")
+        pares()
+    elif opcion == "3":
+        print("\nEjecutando ejercicio 3")
+        trampaEmoji()
+    elif opcion == "4":
+        print("\nEjecutando ejercicio 4")
+        sumaPares()
+    elif opcion == "5":
+        print("\nEjecutando ejercicio 5")
+        retrocesoTemporal()
+    elif opcion == "6":
+        print("\nEjecutando ejercicio 6")
+        contadorDinamico()
+    elif opcion == "0":
+        print("Saliendo...")
+        continuar = False
+    else: 
+        print("Opción no válida, intente otra vez")
