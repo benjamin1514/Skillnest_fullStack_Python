@@ -33,9 +33,9 @@ def pares():
 def trampaEmoji():
     for i in range(1, 100 + 1):
         if i % 10 == 0:
-            print("Es divisible por 10")
+            print("😘")
         elif i % 5 == 0:
-            print("Es divisible por 5")
+            print("👍")
         else:
             print(i)
 
