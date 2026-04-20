@@ -59,11 +59,35 @@ Formatea la salida para que cada diccionario se
 imprima en una sola línea, con el formato.
 nombre - EliteGamerX, seguidores - 250000
 '''
-
-def iterar_diccionario():
+ListaItems = {
+    "nombre": ["EliteGamerX", "PixelWarrior"], "seguidores": [250000, 180000]
+}
+def iterar_diccionario(lista,diccionario):
+    valor = diccionario.get(lista, [])
+    for valores in valor:
+        print(valores)
+    
+iterar_diccionario("nombre", ListaItems)
+iterar_diccionario("seguidores", ListaItems)
     
         
     
+categorias = {
+    "juegos_populares": [
+        "Fortnite", 
+        "Minecraft", 
+        "Valorant", 
+        "GTA V",
+    ],
+    "ciudades_eventos": [
+        "Nueva York",
+        "Madrid",
+        "Tokio",
+    ]
+}
+
+def mostrar_informacion(categorias):
+    pass
 
 
 
