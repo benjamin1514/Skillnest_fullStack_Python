@@ -8,9 +8,9 @@ def multiplica_por_2(num):
 print(multiplica_por_2(5))
 # Debe retornar: [0, 2, 4, 6, 8, 10]
 
-def suma_y_resta(lista):
-    suma = lista[0] + lista[1]
-    resta = lista[0] - lista[1]
+def suma_y_resta(sumaResta):
+    suma = sumaResta[0] + sumaResta[1]
+    resta = sumaResta[0] - sumaResta[1]
     print(suma)
     return resta    
 # Analiza publicaciones
@@ -19,9 +19,9 @@ print(suma_y_resta([120, 115]))
 
 
 # Puntaje ajustado
-def sumatoria_menos_longitud(lista):
-    total = sum(lista)
-    longitud = len(lista)
+def sumatoria_menos_longitud(sumatoria):
+    total = sum(sumatoria)
+    longitud = len(sumatoria)
     resultado = total - longitud
     
     return resultado
@@ -29,16 +29,16 @@ def sumatoria_menos_longitud(lista):
 print(sumatoria_menos_longitud([10, 5, 3, 7]))
 # Suma total = 25, longitud = 4, debe retornar: 21
 
-def valores_multiplicados_segundo(lista):
-    if len(lista) < 2:
-        print(len(lista))
+def valores_multiplicados_segundo(multiplicar):
+    if len(multiplicar) < 2:
+        print(len(multiplicar))
         return []
     
-    valores_multiplicador = lista[1]
-    print(len(lista))
+    valores_multiplicador = multiplicar[1]
+    print(len(multiplicar))
     
     nueva_lista = []
-    for i in lista:
+    for i in multiplicar:
         nueva_lista.append(i * valores_multiplicador)
     return nueva_lista
 print(valores_multiplicados_segundo([100, 3, 50, 20]))

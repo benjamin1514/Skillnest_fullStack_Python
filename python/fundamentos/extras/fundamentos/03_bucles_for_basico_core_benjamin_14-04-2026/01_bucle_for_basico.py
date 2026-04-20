@@ -8,7 +8,7 @@ usando ejemplos inspirados en videojuegos y situaciones atractivas.
 # (Tu código aquí)
 
 def generadorNiveles(): 
-    for i in range(1, 100 + 1):
+    for i in range(0, 100 + 1):
         print(f"Nivel: {i}")
 
 # 2. Potenciadores de energía (Múltiplos de 2)
