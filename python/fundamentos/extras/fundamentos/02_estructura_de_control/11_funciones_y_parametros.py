@@ -3,8 +3,9 @@
 def multiplicacion(num1, num2): #definimos la función multiplación con los parámetros num1 y num2
     resultado = num1 * num2     #instrucciones dentro de la función
     return resultado            #regresamos valor de resultado
-
-resultado_multiplicacion = multiplicacion(5, 5) #Llamado a la función con argumentos 5 y 5
+a = int(input("Ingrese primer número: "))
+b = int(input("Ingrese segundo número: "))
+resultado_multiplicacion = multiplicacion(a, b) #Llamado a la función con argumentos 5 y 5
 print(resultado_multiplicacion) 
 #Se guarda en la variable el resultado que la función regresó. Imprime: 25
 
@@ -39,6 +40,15 @@ def buenos_dias(nombre):
 frase = buenos_dias("Python")
 print(frase) #Imprime: Buenos días Python
 
+#Ejercicio de retorno de valor.
+#Crear una funcion que reciba una frase + un parametro 
+def buenas_tardes(frase, palabra):
+    return f"{frase} {palabra}"
+frase = input("Ingrese una frase: ")
+palabra = input("Ingrese una palabra: ")
+resultadoFrase = buenas_tardes(frase, palabra)
+print(resultadoFrase)
+
 # Parámetros por defecto y argumentos de palabras clave
 
 def buenos_dias(nombre="alegría", cantidad=1):
@@ -51,7 +61,7 @@ buenos_dias(cantidad=3)  #Imprime: "Buenos días alegría" 3 veces
 buenos_dias(nombre="señor Sol", cantidad=2)  #Imprime: "Buenos días señor Sol" 2 veces
 
 #El orden de los argumentos no importa siempre y cuando especifiquemos el parámetro
-buenos_dias(cantidad=3, nombre="para vos")  #Imprime: "Buenos días para vos" 3 veces
+buenos_dias(cantidad=3, nombre="para vos ")  #Imprime: "Buenos días para vos" 3 veces
 
 
 
