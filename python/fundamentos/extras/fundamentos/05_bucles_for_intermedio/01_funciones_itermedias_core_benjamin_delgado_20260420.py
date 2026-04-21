@@ -72,6 +72,17 @@ iterar_diccionario("seguidores", ListaItems)
     
         
     
+
+
+
+
+'''
+Crea la función mostrar_informacion(diccionario), 
+que reciba un diccionario en el que los valores sean listas.
+La función debe, por una parte, imprimir el tamaño de la lista y la clave en mayúsculas,
+por otra, imprimir cada elemento de la lista en líneas separadas.
+'''
+
 categorias = {
     "juegos_populares": [
         "Fortnite", 
@@ -86,7 +97,7 @@ categorias = {
     ]
 }
 
-def mostrar_informacion(categorias):
+def mostrar_informacion(diccionario):
     pass
 
 
