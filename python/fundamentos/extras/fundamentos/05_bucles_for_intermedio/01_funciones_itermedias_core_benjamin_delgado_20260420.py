@@ -59,21 +59,12 @@ Formatea la salida para que cada diccionario se
 imprima en una sola línea, con el formato.
 nombre - EliteGamerX, seguidores - 250000
 '''
-ListaItems = {
-    "nombre": ["EliteGamerX", "PixelWarrior"], "seguidores": [250000, 180000]
-}
-def iterar_diccionario(lista,diccionario):
-    valor = diccionario.get(lista, [])
-    for valores in valor:
-        print(valores)
+def iterar_diccionario(clave,lista):
+    for diccionario in lista:
+        print(diccionario[clave])
     
-iterar_diccionario("nombre", ListaItems)
-iterar_diccionario("seguidores", ListaItems)
-    
-        
-    
-
-
+iterar_diccionario("nombre", streamers)
+iterar_diccionario("seguidores", streamers)
 
 
 '''
