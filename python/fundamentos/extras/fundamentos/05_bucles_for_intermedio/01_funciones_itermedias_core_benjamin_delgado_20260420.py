@@ -89,11 +89,11 @@ categorias = {
 }
 
 def mostrar_informacion(diccionario):
-    pass
+    for clave, lista in diccionario.items():
+        print(f"{len(lista)} {clave.upper()}")
+        for elemento in lista:
+            print(elemento)
 
 
-
-
-
-
+print(mostrar_informacion(categorias))
 

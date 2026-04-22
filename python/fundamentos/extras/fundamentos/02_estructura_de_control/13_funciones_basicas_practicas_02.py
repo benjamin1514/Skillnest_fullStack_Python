@@ -1,3 +1,5 @@
+import os
+
 # Calcula experiencia
 def multiplica_por_2(num):
     resultado = []
@@ -60,29 +62,39 @@ def valor_multiplicado_longitud(valor, longitud):
 #print(valor_multiplicado_longitud(7, 5))
 # Debe retornar: [35, 35, 35, 35, 35]
 
+
+def limpiarConsola():
+    os.system('cls')
+
 continuar = True
 
 while continuar:
     opcion = input("\n---- Elige una opción: (1-5) (0 para salir) =")
 
     if opcion == "1":
+            limpiarConsola()
             print("\nEjecutando ejercicio 1:")
             print(multiplica_por_2(5))
     elif opcion == "2":
+            limpiarConsola()
             print("\nEjecutando ejercicio 1:")
             print(suma_y_resta([120, 115]))
     elif opcion == "3":
+            limpiarConsola()
             print("\nEjecutando ejercicio 3")
             print(sumatoria_menos_longitud([10, 5, 3, 7]))
     elif opcion == "4":
+            limpiarConsola()
             print("\nEjecutando ejercicio 4")
             print(valores_multiplicados_segundo([100, 3, 50, 20]))
             print(valores_multiplicados_segundo([100]))
     elif opcion == "5":
+            limpiarConsola()
             print("\nEjecutando ejercicio 5")
             print(valor_multiplicado_longitud(5, 2))
             print(valor_multiplicado_longitud(7, 5))
     elif opcion == "0":
+            limpiarConsola()
             print("Saliendo...")
             continuar = False
     else: 
