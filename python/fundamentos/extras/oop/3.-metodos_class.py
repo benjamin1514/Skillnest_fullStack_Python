@@ -17,11 +17,6 @@ class Usuario:
     def cambiarCorreo(self, correo):
         self.email = correo
 
-
-
-
-
-
 miyagi = Usuario("Nariyoshi", "Miyagi", "miyagi@codingdojo.la")
 daniel = Usuario("Daniel", "Larusso", "daniel@codingdojo.la")
 
