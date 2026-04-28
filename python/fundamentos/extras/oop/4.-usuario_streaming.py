@@ -35,27 +35,40 @@ class UsuarioStreaming:
     def agregar_a_lista(self, titulo):
         """Agrega un contenido a la lista de reproducción del usuario."""
         self.lista_reproduccion.append(titulo)
-
+        print(f"Titulo {titulo} agregado")
 
     def ver_contenido(self, titulo):
         """Simula que el usuario reproduce un contenido."""
-        pass
+        if titulo in self.lista_reproduccion:
+            print(f"El usuario {self.nombre} esta viendo '{titulo}'")
+        else:
+            print(f"Titulo no encontrado {titulo}")
 
 
     def cambiar_suscripcion(self, nueva_suscripcion):
         """Cambia el tipo de suscripción del usuario."""
-        pass
+        antigua = self.suscripcion
+        self.suscripcion = nueva_suscripcion
+        print(f"Suscripción cambió de {antigua} a {nueva_suscripcion}")
 
 
     def mostrar_info_usuario(self):
         """Muestra la información del usuario y su lista de reproducción."""
-        pass
+        print(f"Nombre: {self.nombre}")
+        print(f"Email: {self.email}")
+        print(f"Suscripcion: {self.suscripcion}")
+        if len(self.lista_reproduccion) == 0:
+            print("La lista de reproducciones esta vacía.")
+        else:
+            print(f"Lista de reproduccion: \n- {"\n".join(self.lista_reproduccion)}")
     
     
 benja = UsuarioStreaming("Benjamin", "Benjamin@gmail.com")
 randy = UsuarioStreaming("Randy", "randy@gmail.com")
+tete = UsuarioStreaming("Tete", "tete@gmail.com")
 
-benja.agregar_a_lista(input("Quieres agregar algun titulo?\n"))
+nombres = [benja, randy, tete] # Guardo las instancias en un array
+
 
 continuar = True
 
@@ -63,13 +76,33 @@ while continuar:
     opcion = input("\n---- Elige una opción: (1-6) (0 para salir) =")
     if opcion == "1":
         print("\nEjecutando ejercicio 1:")
-        print(benja.lista_reproduccion)
+        print("Usuarios disponibes") 
+        for i in range(len(nombres)):
+            print(f"{i}: {nombres[i].nombre}")
+        # Muestro los usuarios disponibles 
+        indice = int(input("Selecciona el número del usuario (0, 1 o 2): "))
+        usuario_seleccionado = nombres[indice]
+        # Aqui para la elección de la instancia elegia por su indice en el array
+        benjaM = int(input(f"Cuantos titulos quiere agregar a {usuario_seleccionado.nombre}\n"))
+        for i in range(benjaM):
+            tituloAgregado = input("Que titulo quieres agregar?\n")
+            usuario_seleccionado.agregar_a_lista(tituloAgregado)
+            
     elif opcion == "2":
         print("\nEjecutando ejercicio 1:")
         
     elif opcion == "3":
         print("\nEjecutando ejercicio 3")
-        
+        print("Usuarios disponibes") 
+        for i in range(len(nombres)):
+            print(f"{i}: {nombres[i].nombre}")
+        # Muestro los usuarios disponibles 
+        indice = int(input("Selecciona el número del usuario (0, 1 o 2): "))
+        usuario_seleccionado = nombres[indice]
+        # Aqui para la elección de la instancia elegia por su indice en el array
+        tipoSuscripcion = input(f"Que tipo de suscripción tienes {usuario_seleccionado.nombre} (Gratuita)")
+        cambiarSuscripcion = input(f"A cual tipo de suscripción quieres cambiar?\n")
+        usuario_seleccionado.cambiar_suscripcion(cambiarSuscripcion)
     elif opcion == "4":
         print("\nEjecutando ejercicio 4")
         
