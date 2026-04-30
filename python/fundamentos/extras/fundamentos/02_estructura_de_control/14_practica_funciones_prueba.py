@@ -62,10 +62,14 @@ muestre únicamente aquellos que tengan más de 5 letras.
 def nombres(listaNombres):
     for i in range(len(listaNombres)):
         if len(listaNombres[i]) > 5:
-            print(listaNombres[i])  
+            print(f"\nEstos nombres tienen más de 5 letras\n{listaNombres[i]}")  
 
 def nombres5Letras():
-    listaNombres = ["Benjamin", "Randy", "Akon", "Marcelo"]
+    listaNombres = []
+    Cnombre = int(input("Ingrese la cantidad de nombres:\n"))
+    for i in range(Cnombre):
+        nombre = input("Ingrese los nombres:\n")
+        listaNombres.append(nombre)
     nombres(listaNombres)
 
 '''
@@ -73,11 +77,25 @@ Ejercicio 4
 Crear una función que reciba una lista de notas (números decimales), 
 calcule el promedio e indique si el estudiante aprueba (promedio mayor o igual a 4.0).
 '''
-def sacarPromedio():
-    pass
+def sacarPromedio(notas):
+    cantidadNotas = len(notas)
+    sumaNotas = sum(notas)
+    promedio = sumaNotas / cantidadNotas
+    
+    if promedio >= 4.0:
+        print(f"Su promedio de notas es de {promedio}\nEstas Aprobado!")
+    else:
+        print(f"Su promedio de notas es {promedio}\nEstas Reprobado!")
 
-
-
+def notas():
+    cantidadNotas = int(input("Cuantas notas quiere ingresar?\n"))
+    notas = []
+    for i in range(cantidadNotas):
+        nota = float(input("Ingrese las notas:\n"))
+        notas.append(nota)
+    sacarPromedio(notas)
+        
+        
 '''
 Ejercicio 5 
 Crear una función que reciba una lista de precios de productos y 
@@ -94,12 +112,104 @@ def valores():
     cantidadProductos = int(input("Ingrese la cantidad de productos que quiere ingresar:\n"))
     listaPrecios = []
     for i in range(cantidadProductos):
-        valorProducto = int(input("Ingrese el valor de cada producto: "))
+        valorProducto = float(input("Ingrese el valor de cada producto:\n"))
         listaPrecios.append(valorProducto)
 
     descuento(listaPrecios)
 
 
+'''
+Ejercicio 6
+Crear una función que reciba un número entero y determine si es par o impar.
+'''
+
+def parImpar(numero):
+    if numero % 2 == 0:
+        print(f"El número {numero} es par.")
+    else:
+        print(f"El número {numero} es impar.")
+
+def numeroEntero():
+    numero = int(input("Ingrese un número: "))
+    parImpar(numero)
+    
+    
+'''
+Ejercicio 7
+Crear una función que reciba una lista de edades y
+muestre cuántas personas son mayores de edad (18 años o más).
+'''
+
+def mayorEdad(edades):
+    contadorMayoresEdad = 0
+    for i in edades:
+        if i >= 18:
+            contadorMayoresEdad += 1
+    print(f"Estas cantidad de personas son mayores de edad {contadorMayoresEdad}")
+
+def edad():
+    cantidadEdades = int(input("Cuantas edades quieres ingresar?\n"))
+    listaEdades = []
+    for i in range(cantidadEdades):
+        edades = int(input("Ingrese las edades:\n"))
+        listaEdades.append(edades)
+    mayorEdad(listaEdades)
+
+
+'''
+Ejercicio 8
+Crear una función que reciba una lista de palabras y 
+permita buscar cuántas veces aparece una palabra específica ingresada por el usuario.
+'''
+
+def palabraIgual(palabras):
+    palabrasIguales = {}
+    for test1 in range(len(palabras)):
+        cantidadVeces = 0
+        for test2 in range(len(palabras)):
+            if palabras[test1] == palabras[test2]:
+                cantidadVeces += 1
+        palabrasIguales[palabras[test1]] = cantidadVeces
+    print(palabrasIguales)
+
+def palabras():
+    cantidadPalabras = int(input("Cuantas palabras quiere ingresar?\n"))
+    listaPalabras = []
+    for i in range(cantidadPalabras):
+        palabra = input("Ingrese la palabra:\n")
+        listaPalabras.append(palabra)
+    palabraIgual(listaPalabras)
+
+'''
+Ejercicio 9
+Crear una función que reciba una lista de números y 
+genere una nueva lista que contenga únicamente los números positivos.
+'''
+
+def numerosPositivos(listaNumeros):
+    nuevaListaNumeros = []
+    for i in listaNumeros:
+        if i > 0:
+            nuevaListaNumeros.append(i)
+    print(f"Esta es la nueva lista de números enteros positivos\n{nuevaListaNumeros}")
+
+def numeros():
+    cantidadNumeros = int(input("Cuantos números quiere ingresar?\n"))
+    listaNumeros = []
+    for i in range(cantidadNumeros):
+        numero = int(input("Ingrese cualquier número(positivo o negativo):\n"))
+        listaNumeros.append(numero)
+    numerosPositivos(listaNumeros)
+
+
+'''
+Ejercicio 10
+Crear una función que reciba una lista de productos 
+(utilizando diccionarios con nombre y stock) y muestre cuáles tienen un stock menor a 5 unidades.
+'''
+
+def productos():
+    pass
 
 continuar = True
 
@@ -116,22 +226,22 @@ while continuar:
         nombres5Letras()
     elif opcion == "4":
         print("\nEjecutando ejercicio 4")
-        
+        notas()
     elif opcion == "5":
         print("\nEjecutando ejercicio 5")
         valores()
     elif opcion == "6":
         print("\nEjecutando ejercicio 6")
-        
+        numeroEntero()
     elif opcion == "7":
         print("\nEjecutando ejercicio 7")
-        
+        edad()
     elif opcion == "8":
         print("\nEjecutando ejercicio 8")
-        
+        palabras()
     elif opcion == "9":
         print("\nEjecutando ejercicio 9")
-        
+        numeros()
     elif opcion == "10":
         print("\nEjecutando ejercicio 10")
         
