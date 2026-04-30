@@ -13,8 +13,6 @@ Opción de salida del programa (0. Salir)
 
 '''
 
-
-
 '''
 Ejercicio 1 
 Crear una función que reciba una 
@@ -82,7 +80,7 @@ def sacarPromedio(notas):
     sumaNotas = sum(notas)
     promedio = sumaNotas / cantidadNotas
     
-    if promedio >= 4.0:
+    if promedio >= 4.0 and promedio <= 7.0:
         print(f"Su promedio de notas es de {promedio}\nEstas Aprobado!")
     else:
         print(f"Su promedio de notas es {promedio}\nEstas Reprobado!")
@@ -126,8 +124,10 @@ Crear una función que reciba un número entero y determine si es par o impar.
 def parImpar(numero):
     if numero % 2 == 0:
         print(f"El número {numero} es par.")
-    else:
+    elif numero % 3 == 0:
         print(f"El número {numero} es impar.")
+    else:
+        print("Error")
 
 def numeroEntero():
     numero = int(input("Ingrese un número: "))
