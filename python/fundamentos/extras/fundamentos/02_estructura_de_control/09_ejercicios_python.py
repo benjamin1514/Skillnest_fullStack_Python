@@ -110,8 +110,11 @@ Utiliza un bucle para recorrer la cadena y contar cuántas vocales tiene en tota
 def contadorVocales():
     palabra = input("Indique una palabra: ")
     vocales = "aeiouáéíóú"
-    for a in a:
-        print(i, vocales[i])
+    contadorVocales = 0
+    for letra in palabra:
+        if letra in vocales:
+            contadorVocales += 1
+            print(f"El número total de vocales es {contadorVocales}")
 
 
 continuar = True
