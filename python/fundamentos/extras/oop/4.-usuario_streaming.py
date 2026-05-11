@@ -36,6 +36,7 @@ class UsuarioStreaming:
         """Agrega un contenido a la lista de reproducción del usuario."""
         self.lista_reproduccion.append(titulo)
         print(f"Titulo {titulo} agregado")
+        print(self.lista_reproduccion)
 
     def ver_contenido(self, titulo):
         """Simula que el usuario reproduce un contenido."""
@@ -69,40 +70,63 @@ tete = UsuarioStreaming("Tete", "tete@gmail.com")
 
 nombres = [benja, randy, tete] # Guardo las instancias en un array
 
+def ejercicio1():
+    print("Usuarios disponibes") 
+    for i in range(len(nombres)):
+            print(f"{i}: {nombres[i].nombre}")
+        # Muestro los usuarios disponibles 
+    indice = int(input("Selecciona el número del usuario (0, 1 o 2): "))
+    usuario_seleccionado = nombres[indice]
+        # Aqui para la elección de la instancia elegia por su indice en el array
+    benjaM = int(input(f"Cuantos titulos quiere agregar a {usuario_seleccionado.nombre}\n"))
+    for i in range(benjaM):
+        tituloAgregado = input("Que titulo quieres agregar?\n")
+        usuario_seleccionado.agregar_a_lista(tituloAgregado)
+    
 
+
+def ejercicio2():
+    pass
+
+
+def ejercicio3():
+    print("Usuarios disponibes") 
+    for i in range(len(nombres)):
+        print(f"{i}: {nombres[i].nombre}")
+        # Muestro los usuarios disponibles 
+    indice = int(input("Selecciona el número del usuario (0, 1 o 2): "))
+    usuario_seleccionado = nombres[indice]
+    print(f"\n{usuario_seleccionado.nombre} tiene suscripción: {usuario_seleccionado.suscripcion}")
+    cambiar = input("¿Quieres cambiarla? (s/n): ").lower()
+    
+    if cambiar == "s":
+        nueva = input("Nuevo tipo (Gratis/Premium/Familiar): ").lower()
+        usuario_seleccionado.cambiar_suscripcion(nueva)
+    
+    # Mensajes según tipo de suscripción
+    if usuario_seleccionado.suscripcion == "gratis":
+        print("\nSigues teniendo suscripción Gratuita")
+    elif usuario_seleccionado.suscripcion == "estandar":
+        print("\nHas cambiado a suscripción Estandar")
+    elif usuario_seleccionado.suscripcion == "premium":
+        print("\nHas cambiado a suscripción Premium")
+        
+
+    
+    
 continuar = True
 
 while continuar:
     opcion = input("\n---- Elige una opción: (1-6) (0 para salir) =")
     if opcion == "1":
         print("\nEjecutando ejercicio 1:")
-        print("Usuarios disponibes") 
-        for i in range(len(nombres)):
-            print(f"{i}: {nombres[i].nombre}")
-        # Muestro los usuarios disponibles 
-        indice = int(input("Selecciona el número del usuario (0, 1 o 2): "))
-        usuario_seleccionado = nombres[indice]
-        # Aqui para la elección de la instancia elegia por su indice en el array
-        benjaM = int(input(f"Cuantos titulos quiere agregar a {usuario_seleccionado.nombre}\n"))
-        for i in range(benjaM):
-            tituloAgregado = input("Que titulo quieres agregar?\n")
-            usuario_seleccionado.agregar_a_lista(tituloAgregado)
-            
+        ejercicio1()
     elif opcion == "2":
         print("\nEjecutando ejercicio 1:")
         
     elif opcion == "3":
         print("\nEjecutando ejercicio 3")
-        print("Usuarios disponibes") 
-        for i in range(len(nombres)):
-            print(f"{i}: {nombres[i].nombre}")
-        # Muestro los usuarios disponibles 
-        indice = int(input("Selecciona el número del usuario (0, 1 o 2): "))
-        usuario_seleccionado = nombres[indice]
-        # Aqui para la elección de la instancia elegia por su indice en el array
-        tipoSuscripcion = input(f"Que tipo de suscripción tienes {usuario_seleccionado.nombre} (Gratuita)")
-        cambiarSuscripcion = input(f"A cual tipo de suscripción quieres cambiar?\n")
-        usuario_seleccionado.cambiar_suscripcion(cambiarSuscripcion)
+        ejercicio3()
     elif opcion == "4":
         print("\nEjecutando ejercicio 4")
         
