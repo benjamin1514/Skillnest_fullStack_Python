@@ -109,6 +109,12 @@ Utiliza un bucle para recorrer la cadena y contar cuántas vocales tiene en tota
 def contadorVocales():
     palabra = input("Indique una palabra: ").lower()
     vocales = "aeiouáéíóú"
+
+    contadorVocales = 0
+    for letra in palabra:
+        if letra in vocales:
+            contadorVocales += 1
+            print(f"El número total de vocales es {contadorVocales}")
     contarVocales = 0
 
     for caracter in palabra:
@@ -262,6 +268,7 @@ def analisisTem():
     print(f"Promedio: {promedio:.1f}")
     print(f"Dias > 25°: {calurosos}")
     print(f"Mas frio: {diaFrio} ({min(temps)}°))")
+
 
 
 continuar = True
