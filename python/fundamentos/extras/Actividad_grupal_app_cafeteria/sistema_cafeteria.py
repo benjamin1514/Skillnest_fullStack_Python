@@ -102,23 +102,14 @@ class CafeteriaCliente:
 
 
 
-
-
-
-
-
-
 usuario1 = CafeteriaCliente("Pedro", 0, 0)
 usuario2 = CafeteriaCliente("Daniel", 0, 0)
 usuario3 = CafeteriaCliente("Juan", 0, 0)
 
 
 CafeteriaCliente.mostrar_total_clientes()
-#usuario1.realizar_compra(14000)
-#usuario1.pagar_saldo(14000)
-
-
-
+usuario1.realizar_compra(14000)
+usuario1.pagar_saldo(14000)
 
 
 
