@@ -1,0 +1,93 @@
+/* 1. RESETEO Y CONFIGURACIÓN GENERAL */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #f4f4f9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* 2. CONTENEDOR DE LA TABLA */
+.container {
+    background-color: #ffffff;
+    width: 100%;
+    max-width: 900px;
+    border: 2px solid #000000;
+    border-radius: 4px;
+    box-shadow: 4px 4px 0px #000000;
+    overflow: hidden; /* Evita que los bordes de la tabla se salgan de la tarjeta */
+}
+
+/* 3. ESTILOS DE LA TABLA */
+.user-table {
+    width: 100%;
+    border-collapse: collapse; /* Une los bordes de las celdas en uno solo */
+    text-align: left;
+}
+
+/* Encabezado de la tabla */
+.user-table th {
+    background-color: #e0e0e0; /* Color gris de fondo del boceto */
+    color: #000000;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 12px 15px;
+    border-bottom: 2px solid #000000;
+}
+
+/* Líneas divisorias verticales entre columnas */
+.user-table th:not(:last-child),
+.user-table td:not(:last-child) {
+    border-right: 2px solid #000000;
+}
+
+/* Celdas de contenido */
+.user-table td {
+    padding: 15px;
+    font-size: 15px;
+    color: #000000;
+    background-color: #ffffff;
+}
+
+/* Filas intercaladas para dar el efecto del boceto */
+.user-table tbody tr:nth-child(even) td {
+    background-color: #f9f9f9;
+}
+
+/* Bordes horizontales inferiores en cada fila */
+.user-table tbody tr:not(:last-child) td {
+    border-bottom: 2px solid #000000;
+}
+
+/* 4. COLUMNA Y BOTÓN DE ACCIONES */
+.actions-cell {
+    text-align: center; /* Centra el sobre dentro de su celda */
+    width: 120px;       /* Le da un tamaño fijo a la columna de acciones */
+}
+
+.btn-message {
+    background: none;
+    border: none;
+    font-size: 24px; /* Tamaño del sobre */
+    cursor: pointer;
+    color: #000000;
+    display: inline-block;
+    transition: transform 0.1s ease;
+}
+
+/* Pequeño efecto interactivo al pasar el mouse por encima del sobre */
+.btn-message:hover {
+    transform: scale(1.15);
+}
+
+.btn-message:active {
+    transform: scale(0.95);
+}

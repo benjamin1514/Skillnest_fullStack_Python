@@ -1,0 +1,125 @@
+/* 1. RESETEO Y CONFIGURACIÓN GENERAL */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #f4f4f9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* 2. CONTENEDOR PRINCIPAL (LA PÁGINA BLANCA) */
+.container {
+    background-color: #ffffff;
+    width: 100%;
+    max-width: 650px; /* Tamaño ideal para simular la ventana del boceto */
+    padding: 40px;
+    border: 2px solid #000000;
+    box-shadow: 4px 4px 0px #000000;
+}
+
+/* 3. TIPOGRAFÍAS Y TÍTULOS */
+h1 {
+    font-size: 42px; /* Nombre de "Andrea" bien grande como el boceto */
+    font-weight: bold;
+    color: #000000;
+    margin-bottom: 15px;
+}
+
+h3 {
+    font-size: 24px;
+    font-style: italic; /* Letra cursiva para "Mensajes a Andrea" */
+    font-weight: normal;
+    color: #000000;
+    margin-bottom: 15px;
+}
+
+h2 {
+    font-size: 28px;
+    font-weight: bold;
+    color: #000000;
+    margin-bottom: 15px;
+}
+
+/* Enlaces azules (remitente y tiempo) */
+a {
+    color: #0056b3;
+    text-decoration: underline;
+    font-size: 15px;
+    font-weight: bold;
+    display: inline-block;
+    margin-bottom: 8px;
+}
+
+/* Textos de los mensajes y comentarios */
+p {
+    font-size: 15px;
+    line-height: 1.4;
+    color: #000000;
+    margin-bottom: 25px; /* Espacio antes del siguiente bloque */
+}
+
+/* 4. BLOQUE DE COMENTARIOS (SANGRE HACIA LA DERECHA) */
+.comentarios {
+    margin-left: 40px; /* Empuja los comentarios a la derecha como en el dibujo */
+    margin-top: 20px;
+}
+
+/* 5. SECCIÓN DE ENVÍO (INPUT + BOTÓN) */
+.enviar {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    margin-bottom: 30px;
+    width: 100%;
+}
+
+/* Si la caja de enviar está dentro de comentarios, se alinea con ellos */
+.comentarios + .enviar {
+    padding-left: 40px; 
+    margin-bottom: 10px; /* Último elemento */
+}
+
+/* El cuadro de texto */
+.enviar input[type="text"] {
+    flex-grow: 1; /* Hace que el input ocupe todo el espacio sobrante a la izquierda */
+    padding: 12px;
+    font-size: 15px;
+    border: 2px solid #000000;
+    border-radius: 4px;
+    outline: none;
+    background-color: #ffffff;
+}
+
+.enviar input[type="text"]::placeholder {
+    color: #777777;
+    font-style: italic;
+}
+
+/* Botón "Enviar" estilo Wireframe */
+.enviar button {
+    background-color: #ffffff;
+    color: #000000;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: 2px solid #000000;
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: 3px 3px 0px #000000;
+    transition: transform 0.1s ease, box-shadow 0.1s ease;
+    white-space: nowrap; /* Evita que el texto "Enviar" se parta en dos líneas */
+}
+
+/* Efecto mecánico de hundido al presionar */
+.enviar button:active {
+    transform: translate(3px, 3px);
+    box-shadow: 0px 0px 0px #000000;
+}

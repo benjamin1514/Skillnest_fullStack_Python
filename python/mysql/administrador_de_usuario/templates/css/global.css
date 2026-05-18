@@ -1,0 +1,379 @@
+/* ==========================================================================
+   1. VARIABLES DE DISEÑO (Estilo Wireframe Unificado)
+   ========================================================================== */
+:root {
+    --bg-main: #f4f4f9;
+    --bg-card: #ffffff;
+    --bg-table-header: #e0e0e0;
+    --bg-input-focus: #f0f7ff;
+    --color-text: #000000;
+    --border-main: 2px solid #000000;
+    --shadow-card: 4px 4px 0px #000000;
+    --shadow-btn: 3px 3px 0px #000000;
+}
+
+/* ==========================================================================
+   2. RESETEO Y CONFIGURACIÓN GENERAL
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: var(--bg-main);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    color: var(--color-text);
+}
+
+/* Contenedor base de la página blanca */
+.container {
+    background-color: var(--bg-card);
+    width: 100%;
+    border: var(--border-main);
+    box-shadow: var(--shadow-card);
+}
+
+h1, h2, h3 {
+    color: var(--color-text);
+}
+
+/* Componente de Botón Universal Estilo Wireframe */
+button.btn-wireframe {
+    background-color: var(--bg-card);
+    color: var(--color-text);
+    font-weight: bold;
+    border: var(--border-main);
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: var(--shadow-btn);
+    transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+button.btn-wireframe:active {
+    transform: translate(3px, 3px);
+    box-shadow: 0px 0px 0px #000000;
+}
+
+/* Campos de entrada estándar */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+select {
+    border: var(--border-main);
+    border-radius: 4px;
+    outline: none;
+    background-color: var(--bg-card);
+    padding: 10px;
+    font-size: 15px;
+}
+
+input:focus, select:focus {
+    background-color: var(--bg-input-focus);
+}
+
+
+/* ==========================================================================
+   3. VISTA 1: INICIO DE SESIÓN Y REGISTRO (Doble Columna)
+   ========================================================================== */
+.pantalla-login-registro {
+    max-width: 900px;
+    padding: 50px 40px;
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+}
+
+.auth-column {
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.auth-column h2 {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+/* Alineación interna del formulario de login/registro */
+.auth-form-group {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.auth-form-group label {
+    font-weight: bold;
+    width: 35%;
+    font-size: 15px;
+}
+
+.auth-form-group input {
+    width: 60%;
+}
+
+.auth-actions {
+    display: flex;
+    justify-content: flex-end; /* Botones alineados a la derecha de su columna */
+    margin-top: 10px;
+}
+
+.auth-actions .btn-wireframe {
+    padding: 8px 20px;
+    font-size: 15px;
+}
+
+
+/* ==========================================================================
+   4. VISTAS 2 Y 4: TABLES / DASHBOARDS (Admin y Común)
+   ========================================================================== */
+.pantalla-dashboard-admin,
+.pantalla-dashboard {
+    max-width: 950px;
+    border-radius: 4px;
+    overflow: hidden;
+    padding: 20px;
+}
+
+/* Cabecera del Dashboard Admin (Contiene el botón de "Nuevo Usuario") */
+.dashboard-header {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+}
+
+.dashboard-header .btn-wireframe {
+    padding: 8px 16px;
+    font-size: 15px;
+}
+
+/* Estructura de la Tabla */
+.user-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    border: var(--border-main);
+}
+
+.user-table th {
+    background-color: var(--bg-table-header);
+    font-weight: bold;
+    font-size: 16px;
+    padding: 12px 15px;
+    border-bottom: var(--border-main);
+}
+
+.user-table th:not(:last-child),
+.user-table td:not(:last-child) {
+    border-right: var(--border-main);
+}
+
+.user-table td {
+    padding: 12px 15px;
+    font-size: 15px;
+    background-color: var(--bg-card);
+}
+
+.user-table tbody tr:nth-child(even) td {
+    background-color: #f9f9f9;
+}
+
+.user-table tbody tr:not(:last-child) td {
+    border-bottom: var(--border-main);
+}
+
+/* Celda y botones de acciones de la tabla */
+.actions-cell {
+    text-align: center;
+    white-space: nowrap;
+    gap: 12px;
+}
+
+.pantalla-dashboard-admin .actions-cell {
+    width: 150px;
+}
+
+.pantalla-dashboard .actions-cell {
+    width: 100px;
+}
+
+.table-action-btn {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: var(--color-text);
+    display: inline-block;
+    margin: 0 6px;
+    transition: transform 0.1s ease;
+}
+
+.table-action-btn:hover {
+    transform: scale(1.2);
+}
+
+
+/* ==========================================================================
+   5. VISTAS 3 Y 4 (Imagen 1): FORMULARIOS (Nuevo y Editar Usuario)
+   ========================================================================== */
+.pantalla-nuevo, 
+.pantalla-editar {
+    max-width: 500px;
+    padding: 40px;
+    border-radius: 8px;
+}
+
+.pantalla-nuevo h1,
+.pantalla-editar h1 {
+    margin-bottom: 35px;
+    font-size: 32px;
+    text-align: center;
+}
+
+.user-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.user-form label {
+    font-weight: bold;
+    width: 35%;
+    font-size: 15px;
+}
+
+.user-form input, 
+.user-form select {
+    width: 60%;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+.form-actions .btn-wireframe {
+    font-size: 16px;
+    padding: 10px 30px;
+}
+
+
+/* ==========================================================================
+   6. VISTA 5: MURO DE MENSAJES Y COMENTARIOS
+   ========================================================================== */
+.pantalla-mensajes {
+    max-width: 700px;
+    padding: 40px;
+}
+
+.pantalla-mensajes h1 {
+    text-align: left;
+    font-size: 46px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.pantalla-mensajes h3 {
+    font-size: 26px;
+    font-style: italic;
+    font-weight: normal;
+    margin-bottom: 20px;
+}
+
+.pantalla-mensajes h2 {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.pantalla-mensajes a {
+    color: #0056b3;
+    text-decoration: underline;
+    font-size: 15px;
+    font-weight: bold;
+    display: inline-block;
+    margin-bottom: 8px;
+}
+
+.pantalla-mensajes p {
+    font-size: 15px;
+    line-height: 1.5;
+    margin-bottom: 25px;
+}
+
+.comentarios {
+    margin-left: 40px;
+    margin-top: 20px;
+}
+
+.enviar {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    margin-bottom: 35px;
+    width: 100%;
+}
+
+.comentarios + .enviar {
+    padding-left: 40px;
+    margin-bottom: 15px;
+}
+
+.enviar input[type="text"] {
+    flex-grow: 1;
+    padding: 12px;
+}
+
+.enviar input[type="text"]::placeholder {
+    color: #777777;
+    font-style: italic;
+}
+
+.enviar .btn-wireframe {
+    font-size: 15px;
+    padding: 10px 22px;
+    white-space: nowrap;
+}
+
+
+/* ==========================================================================
+   7. DISEÑO ADAPTABLE (Responsive para móviles)
+   ========================================================================== */
+@media (max-width: 768px) {
+    /* Convierte el Login/Registro de 2 columnas a 1 sola columna en vertical */
+    .pantalla-login-registro {
+        flex-direction: column;
+        gap: 40px;
+    }
+    .auth-column {
+        width: 100%;
+    }
+    
+    /* Permite desplazamiento horizontal en tablas de pantallas pequeñas */
+    .pantalla-dashboard-admin,
+    .pantalla-dashboard {
+        overflow-x: auto;
+    }
+    
+    /* Reduce la sangría de los comentarios en móviles */
+    .comentarios,
+    .comentarios + .enviar {
+        margin-left: 20px;
+        padding-left: 20px;
+    }
+}
