@@ -8,19 +8,19 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
 
 -- -----------------------------------------------------
--- Schema mydb
+-- Schema sistema_mensajes
 -- -----------------------------------------------------
 
 -- -----------------------------------------------------
--- Schema mydb
+-- Schema sistema_mensajes
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `mydb` DEFAULT CHARACTER SET utf8 ;
-USE `mydb` ;
+CREATE SCHEMA IF NOT EXISTS `sistema_mensajes` DEFAULT CHARACTER SET utf8 ;
+USE `sistema_mensajes` ;
 
 -- -----------------------------------------------------
--- Table `mydb`.`tipo_usuarios`
+-- Table `sistema_mensajes`.`tipo_usuarios`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`tipo_usuarios` (
+CREATE TABLE IF NOT EXISTS `sistema_mensajes`.`tipo_usuarios` (
     `id_tipo_usuario` INT UNSIGNED NOT NULL AUTO_INCREMENT,
     `nombre_tipo_usuario` VARCHAR(45) NOT NULL,
     `descripcion_tipo_usuario` VARCHAR(45) NULL,
@@ -40,9 +40,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`usuarios`
+-- Table `sistema_mensajes`.`usuarios`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`usuarios` (
+CREATE TABLE IF NOT EXISTS `sistema_mensajes`.`usuarios` (
     `id_usuario` INT UNSIGNED NOT NULL AUTO_INCREMENT,
     `username` VARCHAR(100) NOT NULL,
     `email` VARCHAR(100) NOT NULL,
@@ -59,16 +59,16 @@ CREATE TABLE IF NOT EXISTS `mydb`.`usuarios` (
     INDEX `fk_usuarios_tipo_usuarios_idx` (`id_tipo_usuario` ASC) VISIBLE,
     CONSTRAINT `fk_usuarios_tipo_usuarios`
         FOREIGN KEY (`id_tipo_usuario`)
-        REFERENCES `mydb`.`tipo_usuarios` (`id_tipo_usuario`)
+        REFERENCES `sistema_mensajes`.`tipo_usuarios` (`id_tipo_usuario`)
         ON DELETE NO ACTION
         ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`mensajes`
+-- Table `sistema_mensajes`.`mensajes`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`mensajes` (
+CREATE TABLE IF NOT EXISTS `sistema_mensajes`.`mensajes` (
     `id_mensaje` INT NOT NULL AUTO_INCREMENT,
     `contenido` TEXT NOT NULL,
     `created_at` DATETIME DEFAULT CURRENT_TIMESTAMP,
@@ -82,21 +82,21 @@ CREATE TABLE IF NOT EXISTS `mydb`.`mensajes` (
     INDEX `fk_mensajes_usuarios2_idx` (`receptor` ASC) VISIBLE,
     CONSTRAINT `fk_mensajes_usuarios1`
     FOREIGN KEY (`emisor`)
-    REFERENCES `mydb`.`usuarios` (`id_usuario`)
+    REFERENCES `sistema_mensajes`.`usuarios` (`id_usuario`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
     CONSTRAINT `fk_mensajes_usuarios2`
     FOREIGN KEY (`receptor`)
-    REFERENCES `mydb`.`usuarios` (`id_usuario`)
+    REFERENCES `sistema_mensajes`.`usuarios` (`id_usuario`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`comentarios`
+-- Table `sistema_mensajes`.`comentarios`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`comentarios` (
+CREATE TABLE IF NOT EXISTS `sistema_mensajes`.`comentarios` (
     `id_comentario` INT NOT NULL AUTO_INCREMENT,
     `contenido` TEXT NOT NULL,
     `created_at` DATETIME DEFAULT CURRENT_TIMESTAMP,
@@ -108,7 +108,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`comentarios` (
     INDEX `fk_comentarios_usuarios1_idx` (`id_usuario` ASC) VISIBLE,
     CONSTRAINT `fk_comentarios_usuarios1`
         FOREIGN KEY (`id_usuario`)
-        REFERENCES `mydb`.`usuarios` (`id_usuario`)
+        REFERENCES `sistema_mensajes`.`usuarios` (`id_usuario`)
         ON DELETE NO ACTION
         ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -117,3 +117,27 @@ ENGINE = InnoDB;
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
+-- Insertar Datos de tablas 
+USE sistema_mensajes;
+
+INSERT INTO tipo_usuarios(nombre_tipo_usuario, descripcion_tipo_usuario)
+
+VALUES (
+    "Administrador",  "Administra todo",
+    "Usuario", "Solo puede interactuar",
+    "Usuario", "Solo puede interactuar",
+    "Usuario", "Solo puede interactuar",
+    "Usuario", "Solo puede interactuar"
+)
+
+
+
+INSERT INTO usuarios(username, email, password_hash)
+
+VALUES (
+    "Benjamin", "benja@gmailcom", "benja123"
+)
+
+
+
