@@ -24,45 +24,51 @@ class PlanEntrenamiento:
         self.duracion_plan = duracion_plan
         
     def mostrar_plan(self):
-        self.nombre_plan
+        print(f"{self.nombre_plan} | {self.duracion_plan}")
         
-        pass
     
-    def modificar_duracion():
-        pass
+    def modificar_duracion(self):
+        cambio = input("A cuanto tiempo quieres cambiar la duración?\n")
+        self.duracion_plan = cambio
+        
+        print(f"El plan de {self.nombre_plan} cambio su tiempo a {cambio} Semanas")
     
 
-plan = PlanEntrenamiento("Fuerza", "4 Semanas")
-plan2 = PlanEntrenamiento("Pilometria", "2 Meses")
+
+plan1 = PlanEntrenamiento("Fuerza", "4 Semanas")
+plan2 = PlanEntrenamiento("Pilometria", "2 Semanas")
 plan3 = PlanEntrenamiento("Pierna", "2 Semanas")
 
+
+
+
+
 class Cliente: 
-    def __init__(self,nombre, numero, correo, plan):
+    def __init__(self,nombre, numero, correo, cambiar_numero):
         self.nombre = nombre
         self.numero = numero
         self.correo = correo
-        self.plan = plan
+        self.cambiar_numero = cambiar_numero
         
-        def mostrar_cliente():
-            pass
-        
-        def actualizar_telefono():
-            pass
-        
+    def mostrar_cliente(self):
+        print(f"Nombre: {self.nombre} Número: {self.numero} Correo: {self.correo}")
     
-cliente1 = Cliente("José", "932494323", "José@gmail.com")
-cliente2 = Cliente("Martina", "932674532", "Martina@gmail.com")
-cliente3 = Cliente("Luciano", "932895643", "Luciano@gmail.com")
+    def actualizar_telefono(self):
+        #self.cambiar_numer = input(f"Cambia el numero:\n")     
+        # self.cambiar_num = cambiar_numero 
+        pass
+#cliente1 = Cliente("José", "932494323", "José@gmail.com")
+#cliente2 = Cliente("Martina", "932674532", "Martina@gmail.com")
+# cliente3 = Cliente("Luciano", "932895643", "Luciano@gmail.com")
 
-Cliente.mostrar_cliente()
-Cliente.actualizar_telefono()
+
 
 class Entrenador:
-    def _init_(self, nombre_entrenador, numero_entrenador, correo_entrenador, clases_asginadas):
+    def _init_(self, nombre_entrenador, numero_entrenador, correo_entrenador, clases_asignadas):
         self.nombre_entrenador = nombre_entrenador
         self.numero_entrenador = numero_entrenador
         self.correo_entrenador = correo_entrenador
-        self.clases = clases_asginadas
+        self.clases = clases_asignadas
         
     def mostrar_entrenador():        
         pass
@@ -70,10 +76,9 @@ class Entrenador:
     def asignar_cliente():       
         pass
 
-entrenador1 = Entrenador("Jose")
     
-PlanEntrenamiento.mostrar_entrenador()
-PlanEntrenamiento.asignar_cliente()
+Entrenador.mostrar_entrenador()
+Entrenador.asignar_cliente()
 
 
 
@@ -83,10 +88,21 @@ while continuar:
     opcion = input("\n---- Elige una opción: (1-6) (0 para salir) =")
     if opcion == "1":
         print("\nEjecutando ejercicio 1:")
-        ()
+        plan1.mostrar_plan()
+        plan2.mostrar_plan()
+        plan3.mostrar_plan()
     elif opcion == "2":
         print("\nEjecutando ejercicio 1:")
-        ()    
+        print("1\n2\n3")
+        plan = input("Ingrese a cual quiere cambiar\n")
+        if plan == "1":
+            plan1.modificar_duracion()
+        elif plan == "2":
+            plan2.modificar_duracion()
+        elif plan == "3":
+            plan3.modificar_duracion()
+        else:
+            print("Ingrese una opción Valida.")
     elif opcion == "3":
         print("\nEjecutando ejercicio 3")
         ()
