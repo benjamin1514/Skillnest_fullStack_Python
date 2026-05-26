@@ -41,7 +41,6 @@ plan3 = PlanEntrenamiento("Pierna", "2 Semanas")
 
 
 
-
 class Cliente: 
     def __init__(self,nombre, numero, correo):
         self.nombre = nombre
@@ -56,7 +55,7 @@ class Cliente:
         numero_antiguo = self.numero
         cambiar_num = input("Realiza el cambio de número\n")
         self.numero = cambiar_num
-        print(f"El numero {numero_antiguo} cambió a {cambiar_num}\n")
+        print(f"El número {numero_antiguo} cambió a {cambiar_num}\n")
 
 cliente1 = Cliente("José", "932494323", "José@gmail.com")
 cliente2 = Cliente("Martina", "932674532", "Martina@gmail.com")
