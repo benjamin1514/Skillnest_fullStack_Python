@@ -17,7 +17,7 @@ Clase PlanEntrenamiento
 mostrar_plan()
 modificar_duracion()
 '''
-    
+
 class PlanEntrenamiento:
     def __init__(self, nombre_plan, duracion_plan):
         self.nombre_plan = nombre_plan
@@ -140,3 +140,4 @@ while continuar:
         print("Opción no válida, intente otra vez")
 
 
+    
