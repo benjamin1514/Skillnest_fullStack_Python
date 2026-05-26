@@ -42,7 +42,6 @@ plan3 = PlanEntrenamiento("Pierna", "2 Semanas")
 
 
 
-
 class Cliente: 
     def __init__(self,nombre, numero, correo):
         self.nombre = nombre
@@ -74,8 +73,8 @@ class Entrenador:
     def mostrar_entrenador(self):
         print(f"Nombre: {self.nombre_entrenador} Número: {self.numero_entrenador} Correo: {self.correo_entrenador}")
         
-    def asignar_cliente(self, cliente_obtejo):
-        print(f"{cliente_obtejo.nombre} se ha asignado a {self.entrenador}")
+    def asignar_cliente(self, cliente_objeto):
+        print(f"{cliente_objeto.nombre} se ha asignado a {self.nombre_entrenador}")
 
     
 
@@ -128,11 +127,11 @@ while continuar:
         print("1\n2\n3")
         plan = input("Ingrese a cual cliente quiere cambiar su número\n")
         if plan == "1":
-            entrenador1.asignar_cliente()
+            entrenador1.asignar_cliente(cliente1)
         elif plan == "2":
-            entrenador2.asignar_cliente()
+            entrenador2.asignar_cliente(cliente3)
         elif plan == "3":
-            entrenador3.asignar_cliente()
+            entrenador3.asignar_cliente(cliente2)
         else:
             print("Ingrese una opción Valida.")
     elif opcion == "0":
