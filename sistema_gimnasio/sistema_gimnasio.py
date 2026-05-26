@@ -125,7 +125,7 @@ while continuar:
         entrenador3.mostrar_entrenador()
     elif opcion == "6":
         print("1\n2\n3")
-        plan = input("Ingrese a cual cliente quiere cambiar su número\n")
+        plan = input("Ingrese a cual entrenador quiere elegir\n")
         if plan == "1":
             entrenador1.asignar_cliente(cliente1)
         elif plan == "2":
