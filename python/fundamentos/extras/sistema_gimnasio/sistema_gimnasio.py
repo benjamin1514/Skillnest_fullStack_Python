@@ -57,11 +57,9 @@ class Cliente:
         self.numero = cambiar_num
         print(f"El número {numero_antiguo} cambió a {cambiar_num}\n")
 
-cliente1 = Cliente("José", "932494323", "José@gmail.com")
-cliente2 = Cliente("Martina", "932674532", "Martina@gmail.com")
-cliente3 = Cliente("Luciano", "932895643", "Luciano@gmail.com")
-
-
+cliente1 = Cliente("Benjamin", "935663522", "benja@gmail.com")
+cliente2 = Cliente("Daniel", "935663524", "daniel@gmail.com")
+cliente3 = Cliente("Martin", "935663525", "Martin@gmail.com")
 
 class Entrenador:
     def __init__(self, nombre_entrenador, numero_entrenador, correo_entrenador):
@@ -138,6 +136,3 @@ while continuar:
         continuar = False
     else: 
         print("Opción no válida, intente otra vez")
-
-
-    
