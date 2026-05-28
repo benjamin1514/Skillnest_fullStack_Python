@@ -19,7 +19,7 @@ CREATE TABLE `tipo_usuarios` (
     `descripcion_tipo_usuario` VARCHAR(100) NOT NULL,
     `created_at`               DATETIME     DEFAULT CURRENT_TIMESTAMP,
     `updated_at`               DATETIME     DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    `created_by`               INT          NULL,
+    `created_by`               INT          NULL, 
     `deleted`                  TINYINT(1)   DEFAULT 0,
     PRIMARY KEY (`id_tipo_usuario`)
 ) ENGINE = InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
