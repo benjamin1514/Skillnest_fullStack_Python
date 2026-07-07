@@ -26,16 +26,15 @@ class Usuario:
         cursor.close()
         conexion.close()
         
-        # Validación 1: ¿Existe el usuario?
+        
         if not resultado:
             return "USUARIO_INCORRECTO"
             
-        # Validación 2: ¿La contraseña coincide?
+        
         password_bd = resultado[2]
         if password_ingresado != password_bd:
             return "PASSWORD_INCORRECTO"
             
-        # Si todo está bien, retornamos el Objeto instanciado
         return Usuario(
             usuario_id=resultado[0], 
             username=resultado[1],   
