@@ -15,12 +15,11 @@ class Usuario:
         cursor = conexion.cursor()
         
         sql_usuario = """
-            SELECT u.id_usuario, u.username, u.password_hash, t.nombre_tipo 
+            SELECT u.username, u.password_hash
             FROM usuarios u
-            JOIN tipo_usuarios t ON u.id_tipo_usuario = t.id_tipo_usuario
-            WHERE u.username = %s AND u.deleted = 0
+            WHERE u.username = %s AND u.password_hash = %s and u.deleted = 0
         """
-        cursor.execute(sql_usuario, (username_ingresado,))
+        cursor.execute(sql_usuario, (username_ingresado, password_ingresado))
         resultado = cursor.fetchone()
         
         cursor.close()
