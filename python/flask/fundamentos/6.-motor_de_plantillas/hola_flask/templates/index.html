@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bienvenido - {{ nombre }} {{ apellido }}</title>
+</head>
+<body>
+
+    {# Parte 4: Comentario de prueba en Jinja2. Este comentario no aparecerá en el navegador. #}
+
+    
+    <header>
+        <h1>¡Bienvenido a la Plataforma!</h1>
+    </header>
+
+    <main>
+        <section>
+            <h2>Información General</h2>
+            <p><strong>Estudiante:</strong> {{ nombre }} {{ apellido }}</p>
+            <p><strong>Curso:</strong> {{ curso }}</p>
+            <p><strong>Institución:</strong> {{ institucion }}</p>
+            <p><strong>Año:</strong> {{ anio }}</p>
+        </section>
+
+        <!-- Parte 2 y 5: Verificación del rol con es_docente -->
+        <section>
+            <h2>Rol de Usuario</h2>
+            {% if es_docente %}
+                <p>👨‍🏫 Modo Docente: Tienes permisos para gestionar el curso.</p>
+            {% else %}
+                <p>🎓 ¡Hola Estudiante {{ nombre }}! Bienvenido/a a tu panel de aprendizaje.</p>
+            {% endif %}
+        </section>
+
+        <!-- Parte 3 y 5: Recorrido de la lista 'tecnologias' con ciclo for -->
+        <section>
+            <h2>Tecnologías que conozco</h2>
+            <ul>
+                {% for tech in tecnologias %}
+                    <li>{{ tech }}</li>
+                {% endfor %}
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <hr>
+        <p>&copy; {{ anio }} {{ institucion }} - Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>
