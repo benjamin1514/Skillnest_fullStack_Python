@@ -1,107 +1,115 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ranking de Jugadores</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+            padding: 40px;
+            background-color: #f4f4f4; /* Color por defecto */
+        }
+        .ranking {
+            width: 600px;
+            margin: auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,.2);
+            overflow: hidden;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            border-bottom: 1px solid #ddd;
+            font-size: 18px;
+        }
+        .info-jugador {
+            text-align: left;
+        }
+        .nombre {
+            font-weight: bold;
+            display: block;
+        }
+        .nivel {
+            font-size: 14px;
+            color: #555;
+            font-weight: normal;
+        }
+        .pais {
+            font-size: 13px;
+            color: #777;
+            display: block;
+            margin-top: 3px;
+        }
+        .puntaje {
+            font-weight: bold;
+        }
 
-<meta charset="UTF-8">
+        /* Estilos de podio */
+        .oro {
+            background-color: #fff8dc;
+            border-left: 8px solid #ffd700;
+        }
+        .plata {
+            background-color: #f5f5f5;
+            border-left: 8px solid #c0c0c0;
+        }
+        .bronce {
+            background-color: #fff0e6;
+            border-left: 8px solid #cd7f32;
+        }
 
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
-
-<title>Ranking de Jugadores</title>
-
-<style>
-
-body{
-font-family:Arial, Helvetica, sans-serif;
-background:#f4f4f4;
-text-align:center;
-padding:40px;
-}
-
-.ranking{
-width:600px;
-margin:auto;
-background:white;
-border-radius:10px;
-box-shadow:0 4px 10px rgba(0,0,0,.2);
-overflow:hidden;
-}
-
-ul{
-list-style:none;
-margin:0;
-padding:0;
-}
-
-li{
-display:flex;
-justify-content:space-between;
-padding:15px;
-border-bottom:1px solid #ddd;
-font-size:18px;
-}
-
-.lider{
-background:#fff8dc;
-font-weight:bold;
-color:darkgoldenrod;
-}
-
-</style>
-
+        /* Estado sin jugadores */
+        .vacio {
+            padding: 30px;
+            color: #888;
+            font-style: italic;
+            justify-content: center;
+        }
+    </style>
 </head>
-
 <body>
+    <h1>🏆 Ranking de Jugadores</h1>
+    <div class="ranking">
+        <ul>
+            {% for jugador in jugadores %}
+                {% set clase_podio = '' %}
+                {% if loop.index == 1 %}{% set clase_podio = 'oro' %}
+                {% elif loop.index == 2 %}{% set clase_podio = 'plata' %}
+                {% elif loop.index == 3 %}{% set clase_podio = 'bronce' %}
+                {% endif %}
+                
+                <li class="{{ clase_podio }}">
+                    <div class="info-jugador">
+                        <span class="nombre">
+                            {{ loop.index }}. {{ jugador.nombre }} 
+                            <span class="nivel">(Nvl. {{ jugador.nivel }})</span>
+                        </span>
+                        <span class="pais">📍 {{ jugador.pais }}</span>
+                    </div>
+                    <span class="puntaje">{{ jugador.puntaje }} pts</span>
+                </li>
+            {% else %}
+                <li class="vacio">No existen jugadores registrados.</li>
+            {% endfor %}
+        </ul>
+    </div>
+    <h3>Total de jugadores: {{ jugadores|length }}</h3>
 
-<h1>🏆 Ranking de Jugadores</h1>
-
-<div class="ranking">
-
-<ul>
-
-{% for jugador in jugadores %}
-
-<li
-
-{% if loop.index == 1 %}
-
-class="lider"
-
-{% endif %}
-
->
-
-<span>
-
-{{ loop.index }}.
-
-{{ jugador.nombre }}
-
-</span>
-
-<span>
-
-{{ jugador.puntaje }} pts
-
-</span>
-
-</li>
-
-{% endfor %}
-
-</ul>
-
-</div>
-
-<h3>
-
-Total de jugadores:
-
-{{ jugadores|length }}
-
-</h3>
-
+    <!-- Asignación dinámica del color sin activar alertas en el editor -->
+    {% if color %}
+    <script>
+        document.body.style.backgroundColor = "{{ color }}";
+    </script>
+    {% endif %}
 </body>
-
 </html>
