@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Portafolio</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+    <header>
+        <h1>Mi Portafolio</h1>
+    </header>
+
+    <main>
+        <section>
+            <h2>Sobre mí</h2>
+        </section>
+        <section>
+            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Foto de perfil" width="200">
+        </section>
+        <section>
+            <p>Hola, soy un desarrollador web apasionado por crear aplicaciones web modernas y funcionales.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Mi Portafolio</p>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+
+</html>
