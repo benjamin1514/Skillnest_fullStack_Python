@@ -2,7 +2,6 @@ from flask import Flask, render_template
 
 app = Flask(__name__)
 
-# Agregadas las propiedades 'nivel' y 'pais'
 jugadores = [
     {"nombre": "CyberWarrior", "puntaje": 9100, "nivel": 45, "pais": "Chile"},
     {"nombre": "ShadowNinja", "puntaje": 8200, "nivel": 38, "pais": "México"},
