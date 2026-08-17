@@ -1,0 +1,329 @@
+:root {
+    --primary-blue: #2563eb;
+    --primary-blue-hover: #1d4ed8;
+    --primary-green: #059669;
+    --primary-green-hover: #047857;
+    
+    --bg-main: #f8fafc;
+    --bg-card: #ffffff;
+    --bg-bar-track: #e2e8f0;
+
+    --text-main: #1e293b;
+    --text-muted: #64748b;
+
+    --type-planta: #66bb6a;
+    --type-veneno: #ab47bc;
+    --type-fuego: #ff7043;
+    --type-agua: #42a5f5;
+    --type-electrico: #ffca28;
+    --type-normal: #b0bec5;
+    --type-hada: #f48fb1;
+    --type-roca: #a1887f;
+    --type-fantasma: #7e57c2;
+
+    --radius-card: 16px;
+    --radius-btn: 8px;
+    --radius-pill: 20px;
+    --shadow-card: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    padding: 30px 20px;
+}
+
+/* Encabezado */
+header {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+header h1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 2.2rem;
+    color: var(--primary-blue);
+    font-weight: 800;
+}
+
+header figure {
+    display: flex;
+    align-items: center;
+}
+
+header figure img {
+    width: 32px;
+    height: 32px;
+}
+
+.subtitulo p {
+    color: var(--text-main);
+    font-size: 1rem;
+    margin-top: 4px;
+    margin-bottom: 18px;
+}
+
+.verPokemon {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+
+.verPokemon a {
+    padding: 8px 16px;
+    border-radius: var(--radius-btn);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.88rem;
+    color: white;
+    transition: background-color 0.2s;
+}
+
+.btn-azul { background-color: var(--primary-blue); }
+.btn-azul:hover { background-color: var(--primary-blue-hover); }
+
+.btn-verde { background-color: var(--primary-green); }
+.btn-verde:hover { background-color: var(--primary-green-hover); }
+
+/* Grilla Principal */
+main {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 24px;
+}
+
+/* Tarjeta */
+.card {
+    background-color: var(--bg-card);
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-card);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Header de la Tarjeta con Degradado y Franjas exactas */
+.card-header {
+    position: relative;
+    padding: 30px 20px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: 
+        repeating-linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.45) 0px,
+            rgba(255, 255, 255, 0.45) 12px,
+            transparent 12px,
+            transparent 24px
+        ),
+        linear-gradient(135deg, #f0f4f9 0%, #d8e2ee 100%);
+}
+
+.card-header .id {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background-color: #3f444e;
+    color: #ffffff;
+    font-size: 0.75rem;
+    font-weight: 800;
+    padding: 3px 10px;
+    border-radius: 12px;
+}
+
+.card-header img {
+    width: 125px;
+    height: 125px;
+    object-fit: contain;
+    mix-blend-mode: multiply;
+    position: relative;
+    z-index: 2;
+}
+
+.card-body {
+    padding: 18px 20px 10px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.card-body h2 {
+    font-size: 1.2rem;
+    color: var(--text-main);
+}
+
+/* Tipos */
+.tipos {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+}
+
+.pill {
+    color: white;
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 3px 12px;
+    border-radius: var(--radius-pill);
+}
+
+.pill-planta { background-color: var(--type-planta); }
+.pill-veneno { background-color: var(--type-veneno); }
+.pill-fuego { background-color: var(--type-fuego); }
+.pill-agua { background-color: var(--type-agua); }
+.pill-eléctrico { background-color: var(--type-electrico); }
+.pill-normal { background-color: var(--type-normal); }
+.pill-hada { background-color: var(--type-hada); }
+.pill-roca { background-color: var(--type-roca); }
+.pill-fantasma { background-color: var(--type-fantasma); }
+
+/* Barra de Poder */
+.poder-box {
+    text-align: left;
+}
+
+.poder-titulo {
+    display: block;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.barra-fondo {
+    background-color: var(--bg-bar-track);
+    height: 10px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.barra-relleno {
+    background-color: var(--primary-blue);
+    height: 100%;
+    width: var(--porcentaje);
+    border-radius: 5px;
+    color: white;
+    font-size: 0.6rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Métricas */
+.metricas {
+    display: flex;
+    justify-content: space-around;
+}
+
+.metrica {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.metrica-label {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    font-weight: 600;
+}
+
+.metrica-valor {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--text-main);
+}
+
+/* Footer de la Tarjeta */
+.card-footer {
+    padding: 10px 20px 20px;
+    background-color: transparent;
+    width: 100%;
+}
+
+.btn-detalles {
+    display: block;
+    width: 100%;
+    padding: 8px 0;
+    border: 1px solid #bfdbfe;
+    border-radius: var(--radius-btn);
+    color: var(--primary-blue);
+    background-color: transparent;
+    text-decoration: none;
+    font-size: 0.82rem;
+    font-weight: 600;
+    text-align: center;
+    transition: all 0.2s;
+}
+
+.btn-detalles:hover {
+    background-color: var(--primary-blue);
+    color: white;
+    border-color: var(--primary-blue);
+}
+
+/* Pantalla de Error 404 */
+.error-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 75vh;
+    padding: 20px;
+}
+
+.error-card {
+    background-color: var(--bg-card);
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-card);
+    padding: 40px 30px;
+    max-width: 480px;
+    width: 100%;
+    text-align: center;
+    border: 1px solid var(--bg-bar-track);
+}
+
+.error-icon img {
+    width: 60px;
+    height: 60px;
+    opacity: 0.85;
+    margin-bottom: 12px;
+}
+
+.error-code {
+    display: inline-block;
+    background-color: #fee2e2;
+    color: #dc2626;
+    font-size: 0.78rem;
+    font-weight: 800;
+    padding: 4px 12px;
+    border-radius: 12px;
+    margin-bottom: 14px;
+}
+
+.error-card h1 {
+    font-size: 1.4rem;
+    color: var(--text-main);
+    margin-bottom: 10px;
+}
+
+.error-mensaje {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 25px;
+}

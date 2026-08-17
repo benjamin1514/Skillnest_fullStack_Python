@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>404 - Pokémon No Encontrado</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+    <div class="error-container">
+        <div class="error-card">
+            <div class="error-icon">
+                <img src="{{ url_for('static', filename='images/pokebola.png') }}" alt="Pokébola">
+            </div>
+            <span class="error-code">ERROR 404</span>
+            <h1>¡Un Pokémon salvaje no apareció!</h1>
+            <p class="error-mensaje">{{ mensaje }}</p>
+            <a href="/pokemon" class="btn-azul">Regresar a la Pokédex</a>
+        </div>
+    </div>
+</body>
+
+</html>

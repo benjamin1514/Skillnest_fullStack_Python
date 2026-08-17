@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Pokédex Flask</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+    <header>
+        <h1>
+            <figure>
+                <img src="{{ url_for('static', filename='images/pokebola.png') }}" alt="pokebola">
+            </figure>
+            Pokédex
+        </h1>
+        <div class="subtitulo">
+            <p>Todos los Pokémon</p>
+        </div>
+        <div class="verPokemon">
+            <a href="/pokemon" class="btn-azul">☰ Ver todos</a>
+            <a href="/pokemon/cantidad/5" class="btn-verde">▼ Ver 5 primeros</a>
+        </div>
+    </header>
+
+    <main>
+        {% for pokemon in pokedex %}
+        <div class="card">
+            <div class="card-header">
+                <span class="id">#{{ pokemon.id }}</span>
+                <img src="{{ url_for('static', filename='images/' + pokemon.imagen) }}" alt="{{ pokemon.nombre }}">
+            </div>
+
+            <div class="card-body">
+                <h2>{{ pokemon.nombre }}</h2>
+                
+                <div class="tipos">
+                    {% for tipo in pokemon.tipo.split('/') %}
+                    <span class="pill pill-{{ tipo.lower() }}">{{ tipo }}</span>
+                    {% endfor %}
+                </div>
+
+                <div class="poder-box">
+                    <span class="poder-titulo">⚡ Poder</span>
+                    <div class="barra-fondo">
+                        <div class="barra-relleno" style="--porcentaje: {{ pokemon.poder }}%;">
+                            {{ pokemon.poder }}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="metricas">
+                    <div class="metrica">
+                        <span class="metrica-label">📏 Altura</span>
+                        <span class="metrica-valor">{{ pokemon.altura }}</span>
+                    </div>
+                    <div class="metrica">
+                        <span class="metrica-label">⚖ Peso</span>
+                        <span class="metrica-valor">{{ pokemon.peso }}</span>
+                    </div>
+                </div>
+            </div>
+
+            <footer class="card-footer">
+                <a href="/pokemon/{{ pokemon.id }}" class="btn-detalles">Ver detalles</a>
+            </footer>
+        </div>
+        {% endfor %}
+    </main>
+
+</body>
+
+</html>
