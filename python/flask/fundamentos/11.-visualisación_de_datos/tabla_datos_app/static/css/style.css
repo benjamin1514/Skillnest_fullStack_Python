@@ -1,0 +1,187 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    background-color: #f8f9fa;
+    color: #333333;
+    padding-bottom: 50px;
+}
+
+/* Contenedor Principal */
+.container {
+    max-width: 900px;
+    margin: 40px auto 0 auto;
+    padding: 0 15px;
+}
+
+/* Encabezado */
+.header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.header h1 {
+    color: #0d6efd;
+    font-size: 2.3rem;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+.header p {
+    color: #6c757d;
+    margin-top: 6px;
+    font-size: 0.95rem;
+}
+
+/* Tarjetas */
+.card {
+    background: #ffffff;
+    border-radius: 12px;
+    border: 1px solid #e9ecef;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+    margin-bottom: 25px;
+    padding: 20px;
+}
+
+/* Sección de Filtros */
+.filter-title {
+    font-weight: 700;
+    color: #212529;
+    font-size: 1rem;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.filter-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.filter-group label {
+    font-size: 0.82rem;
+    color: #495057;
+    margin-bottom: 6px;
+}
+
+.filter-group select {
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: 1px solid #dee2e6;
+    background-color: #ffffff;
+    color: #212529;
+    font-size: 0.9rem;
+    outline: none;
+}
+
+/* Tabla */
+.table-card {
+    padding: 0;
+    overflow: hidden;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead th {
+    background-color: #212529;
+    color: #ffffff;
+    padding: 12px 16px;
+    font-size: 0.88rem;
+    font-weight: 700;
+    text-align: left;
+}
+
+tbody td {
+    padding: 12px 16px;
+    border-bottom: 1px solid #f1f3f5;
+    font-size: 0.9rem;
+    vertical-align: middle;
+}
+
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* Iconos de Marcas */
+.brand-icon {
+    font-size: 1.2rem;
+    margin-right: 8px;
+    width: 20px;
+    text-align: center;
+}
+
+.icon-discord { color: #5865f2; }
+.icon-instagram { color: #e4405f; }
+.icon-netflix { color: #e50914; }
+.icon-spotify { color: #1ed760; }
+.icon-tiktok { color: #000000; }
+.icon-twitch { color: #9146ff; }
+.icon-youtube { color: #ff0000; }
+
+/* Badges / Pastillas */
+.badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.badge-blue { background-color: #0d6efd; }
+.badge-gray { background-color: #6c757d; }
+
+/* Botón de Detalles */
+.btn-info {
+    background: transparent;
+    border: 1px solid #0dcaf0;
+    color: #0dcaf0;
+    width: 24px;
+    height: 24px;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+}
+
+/* Pie de Tabla */
+.table-footer {
+    text-align: right;
+    padding: 12px 16px;
+    font-size: 0.8rem;
+    color: #6c757d;
+    background-color: #ffffff;
+}
+
+/* Pie de página general */
+.footer {
+    text-align: center;
+    font-size: 0.8rem;
+    color: #6c757d;
+    margin-top: 30px;
+    line-height: 1.6;
+}
+
+.subfooter {
+    font-size: 0.75rem;
+    color: #8c959f;
+}
