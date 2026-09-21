@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Producto Registrado</title>
+</head>
+<body>
+    <nav>
+        <a href="{{ url_for('index') }}">Inicio</a> | 
+        <a href="{{ url_for('ayuda') }}">Ayuda</a>
+    </nav>
+    <hr>
+
+    <h1>¡Éxito!</h1>
+    <p><strong>Producto registrado correctamente.</strong></p>
+    <p>La información fue procesada por el servidor.</p>
+
+    <br>
+    <a href="{{ url_for('index') }}">[Volver al formulario]</a>
+</body>
+</html>

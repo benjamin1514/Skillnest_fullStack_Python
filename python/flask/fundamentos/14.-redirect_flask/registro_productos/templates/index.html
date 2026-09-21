@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Registro de Productos</title>
+</head>
+<body>
+    <nav>
+        <a href="{{ url_for('index') }}">Inicio</a> | 
+        <a href="{{ url_for('ayuda') }}">Ayuda</a>
+    </nav>
+    <hr>
+
+    <h1>Registro de Productos</h1>
+
+    <form action="/registrar" method="POST">
+        <div>
+            <label for="nombre">Nombre del producto:</label><br>
+            <input type="text" id="nombre" name="nombre" required placeholder="Ej: Teclado Gamer">
+        </div>
+        <br>
+        <div>
+            <label for="precio">Precio:</label><br>
+            <input type="number" id="precio" name="precio" required placeholder="Ej: 35000">
+        </div>
+        <br>
+        <div>
+            <label for="categoria">Categoría:</label><br>
+            <input type="text" id="categoria" name="categoria" required placeholder="Ej: Periféricos">
+        </div>
+        <br>
+        <button type="submit">Registrar Producto</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Centro de Ayuda - Conceptos Web</title>
+</head>
+<body>
+    <nav>
+        <a href="{{ url_for('index') }}">Inicio</a> | 
+        <a href="{{ url_for('ayuda') }}">Ayuda</a>
+    </nav>
+    <hr>
+
+    <h1>Conceptos clave de Flask y HTTP</h1>
+
+    <section>
+        <h2>1. ¿Qué es una solicitud GET?</h2>
+        <p>Se utiliza para <strong>solicitar o consultar información</strong> al servidor. No debe modificar datos y los parámetros suelen viajar visibles en la URL.</p>
+    </section>
+
+    <section>
+        <h2>2. ¿Qué es una solicitud POST?</h2>
+        <p>Se utiliza para <strong>enviar datos</strong> al servidor para ser procesados (por ejemplo, guardar un nuevo producto en base de datos). Los datos viajan ocultos en el cuerpo de la petición (<em>body</em>).</p>
+    </section>
+
+    <section>
+        <h2>3. ¿Para qué sirve <code>redirect()</code>?</h2>
+        <p>Indica al navegador del usuario que debe hacer una nueva solicitud a una ruta diferente. Permite aplicar el patrón <strong>PRG (Post/Redirect/Get)</strong> para evitar el envío duplicado de formularios al recargar la página.</p>
+    </section>
+
+    <section>
+        <h2>4. ¿Por qué <code>request.form</code> no está disponible después de la redirección?</h2>
+        <p>El protocolo HTTP es <strong>sin estado (stateless)</strong>. Una redirección fuerza al navegador a hacer una <em>segunda solicitud independiente</em> de tipo GET, por lo que los datos del formulario enviados en la primera solicitud POST se pierden en el camino.</p>
+    </section>
+
+    <br>
+    <a href="{{ url_for('index') }}">[Volver al formulario]</a>
+</body>
+</html>
