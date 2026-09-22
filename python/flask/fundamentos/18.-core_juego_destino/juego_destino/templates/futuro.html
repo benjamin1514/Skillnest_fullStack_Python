@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tu Predicción</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="card">
+        <h1>✨ Tu Destino ha sido Revelado ✨</h1>
+
+        <div class="info-usuario">
+            <p><strong>Hola, {{ session['nombre'] }}</strong> (Signo: {{ session['signo'] }} | Nº de la suerte: {{ session['numero_favorito'] }})</p>
+        </div>
+
+        <div class="prediccion {{ session['prediccion_tipo'] }}">
+            <p>{{ session['prediccion_texto'] }}</p>
+        </div>
+
+        <a href="{{ url_for('index') }}" class="btn btn-volver">Probar de nuevo</a>
+    </div>
+</body>
+</html>

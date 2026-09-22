@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Oráculo del Destino</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="card">
+        <h1>🔮 El Oráculo del Destino</h1>
+        <p>Ingresa tus datos para descubrir qué te depara el futuro.</p>
+        
+        <form action="/enviar" method="POST">
+            <div class="form-group">
+                <label for="nombre">Tu Nombre:</label>
+                <input type="text" id="nombre" name="nombre" required placeholder="Ej: Camila">
+            </div>
+
+            <div class="form-group">
+                <label for="signo">Tu Signo Zodiacal:</label>
+                <input type="text" id="signo" name="signo" required placeholder="Ej: Leo">
+            </div>
+
+            <div class="form-group">
+                <label for="numero_favorito">Número Favorito:</label>
+                <input type="number" id="numero_favorito" name="numero_favorito" required placeholder="Ej: 7">
+            </div>
+
+            <button type="submit" class="btn">Revelar mi Destino</button>
+        </form>
+    </div>
+</body>
+</html>
