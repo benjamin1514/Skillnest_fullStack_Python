@@ -61,3 +61,9 @@ VALUES
     ("Luna", "Perro", "Blanco"),
     ("Nala", "Gato", "Naranjo"),
     ("Coco", "Conejo", "Blanco");
+
+INSERT INTO usuarios
+    (nombre, correo, edad, password)
+VALUES
+    ("Juan Pérez", "juan@example.com", 30, "password123"),
+    ("María López", "maria@example.com", 25, "password456");

@@ -23,40 +23,12 @@ app = Flask(__name__)
 
 @app.route("/")
 def index():
-    """
-    Consulta todas las mascotas de la base de datos
-    y las envía hacia la plantilla HTML.
-    """
-
-    # ------------------------------------------------------
-    # Consultar base de datos mediante el modelo.
-    # ------------------------------------------------------
-
     mascotas = Mascota.get_all()
-
-
-    # ------------------------------------------------------
-    # Mostrar resultados en la terminal.
-    # ------------------------------------------------------
-
-    print(mascotas)
-
-
-    # ------------------------------------------------------
-    # Enviar resultados a Jinja2.
-    # ------------------------------------------------------
+    usuarios = Usuarios.get_all() # O Usuario.get_all() según el nombre de tu clase
 
     return render_template(
         "index.html",
-        mascotas=mascotas
-    )
-
-    usuarios = Usuarios.get_all()
-    print(usuarios)
-    
-    
-    return render_template(
-        "index.html",
+        mascotas=mascotas,
         usuarios=usuarios
     )
 
