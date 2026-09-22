@@ -14,6 +14,6 @@ class Usuarios:
         query = "SELECT * FROM usuarios;"
         results = connectToMySQL("primera_flask").query_db(query)
         usuarios = []
-        for row in results:
-            usuarios.append(cls(row))
+        for usuario in results:
+            usuarios.append(cls(usuario))
         return usuarios
