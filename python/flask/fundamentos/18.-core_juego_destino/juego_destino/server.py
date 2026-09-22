@@ -2,49 +2,66 @@ import random
 from flask import Flask, render_template, request, session, redirect, url_for
 
 app = Flask(__name__)
+app.secret_key = "clave-secreta-destino"
 
-# Clave secreta necesaria para usar session en Flask
-app.secret_key = "clave_secreta_skillnest"
-
-# Lista de predicciones para el juego
 PREDICCIONES = [
-    {"tipo": "buena", "texto": "¡Tendrás un éxito gigante en tu próximo examen de programación y tu código funcionará a la primera!"},
-    {"tipo": "buena", "texto": "Encontrarás dinero en la calle y te invitarán la comida que más te gusta esta semana."},
-    {"tipo": "mala", "texto": "Olvidarás cerrar una comilla en tu código y buscarás el error durante 2 horas."},
-    {"tipo": "mala", "texto": "Se te derramará un vaso de agua justo al lado del teclado en un momento crítico."}
+    {
+        "tipo": "buena",
+        "texto": "Encontrarás el verdadero amor en los próximos meses. Tu corazón se llenará de alegría."
+    },
+    {
+        "tipo": "buena",
+        "texto": "Un proyecto importante te traerá gran éxito profesional y financiero este año."
+    },
+    {
+        "tipo": "mala",
+        "texto": "Olvidarás cerrar una comilla en tu código y buscarás el error durante 2 horas."
+    },
+    {
+        "tipo": "mala",
+        "texto": "Se te derramará un vaso de agua justo al lado del teclado en un momento crítico."
+    }
 ]
 
-# 1. Ruta principal: Muestra el formulario
 @app.route("/")
 def index():
     return render_template("index.html")
 
-# 2. Ruta procesadora: Guarda los datos en la sesión y redirige (Solo POST)
 @app.route("/enviar", methods=["POST"])
 def enviar():
-    # Guardamos en sesión usando la sintaxis tradicional de corchetes []
+    # Recibimos y guardamos todos los datos del formulario con corchetes []
     session["nombre"] = request.form["nombre"]
-    session["signo"] = request.form["signo"]
-    session["numero_favorito"] = request.form["numero_favorito"]
+    session["edad"] = request.form["edad"]
+    session["color"] = request.form["color"]
+    session["animal"] = request.form["animal"]
     
+<<<<<<< HEAD
     # Seleccionamos una predicción al azar y la guardamos en la sesión
     prediccion_elegida = random.choice(PREDICCIONES)
     session["prediccion_texto"] = prediccion_elegida["texto"]
         
+=======
+    # Generamos un número de la suerte al azar entre 1 y 99
+    session["numero_suerte"] = random.randint(10, 99)
+    
+    # Elegimos la predicción
+    prediccion = random.choice(PREDICCIONES)
+    session["prediccion_texto"] = prediccion["texto"]
+    session["prediccion_tipo"] = prediccion["tipo"]
+>>>>>>> cb577716688ed09c3bf1564f4d30d34f38d3c425
 
-    # Redirigimos a la ruta GET
     return redirect(url_for("futuro"))
 
-# 3. Ruta de resultado: Muestra la predicción leída desde la sesión
 @app.route("/futuro")
 def futuro():
-    # Verificación: Si no hay un nombre en la sesión, devolvemos al usuario al inicio
     if "nombre" not in session:
         return redirect(url_for("index"))
-        
     return render_template("futuro.html")
+
+@app.route("/reiniciar")
+def reiniciar():
+    session.clear()
+    return redirect(url_for("index"))
 
 if __name__ == "__main__":
     app.run(debug=True)
-
-    

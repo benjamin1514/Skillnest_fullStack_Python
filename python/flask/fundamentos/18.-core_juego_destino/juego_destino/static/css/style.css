@@ -1,0 +1,327 @@
+/* --------------------------------------------------
+   1. RESETEO
+   -------------------------------------------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* --------------------------------------------------
+   2. FONDO CÓSMICO DE PUNTOS
+   -------------------------------------------------- */
+body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background-color: #0b0c1b;
+    background-image: 
+        radial-gradient(circle, rgba(255, 255, 255, 0.2) 2px, transparent 2px),
+        radial-gradient(circle, rgba(255, 255, 255, 0.12) 10px, transparent 10px);
+    background-size: 40px 40px, 90px 90px;
+    background-position: 0 0, 20px 20px;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* --------------------------------------------------
+   3. TARJETA CONTENEDORA DUAL (Header oscuro / Cuerpo claro)
+   -------------------------------------------------- */
+.card {
+    width: 100%;
+    max-width: 420px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+}
+
+/* Encabezado Superior Oscuro */
+.card-header {
+    background: linear-gradient(180deg, #18172e 0%, #252440 100%);
+    padding: 28px 20px 20px;
+    text-align: center;
+    color: #ffffff;
+}
+
+.moon-icon {
+    width: 44px;
+    height: 44px;
+    background: linear-gradient(135deg, #7c3aed, #4f46e5);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 12px;
+    font-size: 20px;
+    box-shadow: 0 4px 15px rgba(124, 58, 237, 0.4);
+}
+
+.card-header h1 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.card-header p {
+    font-size: 0.82rem;
+    color: #a0a5c0;
+}
+
+/* Cuerpo Inferior Claro */
+.card-body {
+    background-color: #f8f9fc;
+    background-image: radial-gradient(#e2e8f0 1.5px, transparent 1.5px);
+    background-size: 16px 16px;
+    padding: 22px 24px 24px;
+}
+
+/* --------------------------------------------------
+   4. INPUTS CON ÍCONOS DENTRO
+   -------------------------------------------------- */
+.form-group {
+    margin-bottom: 12px;
+}
+
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.input-icon {
+    position: absolute;
+    left: 14px;
+    font-size: 14px;
+    z-index: 2;
+    pointer-events: none;
+    opacity: 0.8;
+}
+
+input {
+    width: 100%;
+    padding: 12px 14px 12px 40px; /* Espacio a la izquierda para el ícono */
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    background-color: #ffffff;
+    font-size: 0.88rem;
+    color: #1e293b;
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+input::placeholder {
+    color: #94a3b8;
+}
+
+input:focus {
+    border-color: #7c3aed;
+    box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.12);
+}
+
+.input-help {
+    font-size: 0.72rem;
+    color: #94a3b8;
+    margin-top: 4px;
+    margin-left: 4px;
+}
+
+/* --------------------------------------------------
+   5. BOLA DE CRISTAL 3D
+   -------------------------------------------------- */
+.orb-container {
+    display: flex;
+    justify-content: center;
+    margin: 18px 0;
+}
+
+.crystal-orb {
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 30%, #ffffff 0%, #c7d2fe 25%, #818cf8 55%, #4338ca 85%, #1e1b4b 100%);
+    box-shadow: 0 10px 25px rgba(99, 102, 241, 0.35);
+    position: relative;
+}
+
+.crystal-orb::after {
+    content: '';
+    position: absolute;
+    top: 14%;
+    left: 22%;
+    width: 22%;
+    height: 22%;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.8);
+    filter: blur(1px);
+}
+
+/* --------------------------------------------------
+   6. BOTÓN PÚRPURA
+   -------------------------------------------------- */
+.btn-submit {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(90deg, #6d11f7 0%, #7c3aed 100%);
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    font-size: 0.92rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(109, 17, 247, 0.35);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.btn-submit:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(109, 17, 247, 0.5);
+}
+
+/* --------------------------------------------------
+   7. ESTILOS DE LA PÁGINA DE RESULTADOS (/futuro)
+   -------------------------------------------------- */
+
+/* Icono del Sol/Engranaje en Header */
+.sun-icon {
+    width: 44px;
+    height: 44px;
+    background: #f59e0b;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 12px;
+    font-size: 20px;
+    box-shadow: 0 4px 12px rgba(245, 158, 11, 0.4);
+}
+
+/* Caja Verde de Predicción */
+.prediccion-box {
+    background-color: #ecfdf5;
+    border: 1px solid #d1fae5;
+    border-left: 4px solid #10b981;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.prediccion-box .star-icon {
+    color: #10b981;
+    font-size: 22px;
+    margin-bottom: 8px;
+}
+
+.prediccion-box p {
+    color: #065f46;
+    font-size: 0.92rem;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Grid de Color y Animal */
+.info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.info-card {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 14px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+    border: 1px solid #f1f5f9;
+}
+
+.info-card-header {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #6d11f7;
+    margin-bottom: 8px;
+}
+
+.info-card p {
+    font-size: 0.78rem;
+    color: #475569;
+    line-height: 1.4;
+    margin: 0;
+}
+
+/* Círculo Muestra de Color */
+.color-circle {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    margin: 8px auto;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+/* Sección Número de la Suerte */
+.lucky-section {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.lucky-section h3 {
+    color: #6d11f7;
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.number-badge {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #6d11f7, #7c3aed);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin: 0 auto 8px;
+    box-shadow: 0 4px 12px rgba(109, 17, 247, 0.3);
+}
+
+.lucky-subtext {
+    font-size: 0.75rem;
+    color: #64748b;
+}
+
+/* Caja Edad */
+.age-box {
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-left: 3px solid #7c3aed;
+    border-radius: 10px;
+    padding: 12px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.age-box p {
+    font-size: 0.8rem;
+    color: #334155;
+    margin: 0;
+}
+
+/* Botón y Nota Final */
+.btn-volver {
+    text-decoration: none;
+}
+
+.footer-note {
+    font-size: 0.72rem;
+    color: #94a3b8;
+    text-align: center;
+    margin-top: 14px;
+}
