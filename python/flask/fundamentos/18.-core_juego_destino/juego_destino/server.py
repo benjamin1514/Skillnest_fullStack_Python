@@ -30,7 +30,7 @@ def enviar():
     # Seleccionamos una predicción al azar y la guardamos en la sesión
     prediccion_elegida = random.choice(PREDICCIONES)
     session["prediccion_texto"] = prediccion_elegida["texto"]
-    session["prediccion_tipo"] = prediccion_elegida["tipo"]
+        
 
     # Redirigimos a la ruta GET
     return redirect(url_for("futuro"))
