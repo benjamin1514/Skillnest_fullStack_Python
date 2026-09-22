@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mascotas: {{ tipo_buscado }}</title>
+</head>
+<body>
+
+    <h1>Listado de tipo: {{ tipo_buscado }}</h1>
+
+    {% if mascotas %}
+        {% for mascota in mascotas %}
+        <div>
+            <p>
+                <b>ID:</b> {{ mascota.id }} <br>
+                <b>Nombre:</b> {{ mascota.nombre }} <br>
+                <b>Tipo:</b> {{ mascota.tipo }} <br>
+                <b>Color:</b> {{ mascota.color }} <br>
+                <b>Creado:</b> {{ mascota.created_at }} <br>
+                <b>Actualizado:</b> {{ mascota.updated_at }}
+            </p>
+            <hr>
+        </div>
+        {% endfor %}
+    {% else %}
+        <p>No se encontraron mascotas del tipo <b>{{ tipo_buscado }}</b>.</p>
+    {% endif %}
+
+    <br>
+    <a href="/">Volver al inicio</a>
+
+</body>
+</html>
