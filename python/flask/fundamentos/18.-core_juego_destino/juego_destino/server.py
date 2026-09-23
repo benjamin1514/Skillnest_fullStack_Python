@@ -35,12 +35,12 @@ def enviar():
     session["color"] = request.form["color"]
     session["animal"] = request.form["animal"]
     
-<<<<<<< HEAD
+
     # Seleccionamos una predicción al azar y la guardamos en la sesión
     prediccion_elegida = random.choice(PREDICCIONES)
     session["prediccion_texto"] = prediccion_elegida["texto"]
         
-=======
+
     # Generamos un número de la suerte al azar entre 1 y 99
     session["numero_suerte"] = random.randint(10, 99)
     
@@ -48,7 +48,7 @@ def enviar():
     prediccion = random.choice(PREDICCIONES)
     session["prediccion_texto"] = prediccion["texto"]
     session["prediccion_tipo"] = prediccion["tipo"]
->>>>>>> cb577716688ed09c3bf1564f4d30d34f38d3c425
+
 
     return redirect(url_for("futuro"))
 
