@@ -7,7 +7,7 @@ class Usuario:
     """
 
     def __init__(self, data):
-        self.id = data["id_usuario"]
+        self.id = data["id"]
         self.nombre = data["nombre"]
         self.email = data["email"]
         self.contrasena = data["contrasena"]
@@ -23,14 +23,14 @@ class Usuario:
 
         query = """
             SELECT
-                id_usuario,
+                id,
                 nombre,
                 email,
                 contrasena,
                 created_at,
                 updated_at
             FROM usuarios
-            ORDER BY id_usuario;
+            ORDER BY id;
         """
 
         resultados = connectToMySQL(
@@ -52,18 +52,18 @@ class Usuario:
 
         query = """
             SELECT
-                id_usuario,
+                id,
                 nombre,
                 email,
                 contrasena,
                 created_at,
                 updated_at
             FROM usuarios
-            WHERE id_usuario = %(id_usuario)s;
+            WHERE id = %(id)s;
         """
 
         data = {
-            "id_usuario": id
+            "id": id
         }
 
         resultados = connectToMySQL(
@@ -141,7 +141,7 @@ class Usuario:
             return None
 
         usuario_data = {
-            "id_usuario": resultados[0]["usuario_id"],
+            "id": resultados[0]["usuario_id"],
             "nombre": resultados[0]["usuario_nombre"],
             "email": resultados[0]["usuario_email"],
             "contrasena": resultados[0]["usuario_contrasena"],

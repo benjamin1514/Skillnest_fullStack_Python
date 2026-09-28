@@ -7,7 +7,7 @@ class Cancion:
     """
 
     def __init__(self, data):
-        self.id = data["id_cancion"]
+        self.id = data["id"]
         self.titulo = data["titulo"]
         self.artista = data["artista"]
         self.created_at = data["created_at"]
@@ -22,7 +22,7 @@ class Cancion:
 
         query = """
             SELECT
-                id_cancion AS id,
+                id,
                 titulo,
                 artista,
                 created_at,
@@ -50,17 +50,17 @@ class Cancion:
 
         query = """
             SELECT
-                id_cancion,
+                id,
                 titulo,
                 artista,
                 created_at,
                 updated_at
             FROM canciones
-            WHERE id_cancion = %(id_cancion)s;
+            WHERE id = %(id)s;
         """
 
         data = {
-            "id_cancion": id
+            "id": id
         }
 
         resultados = connectToMySQL(
@@ -104,7 +104,7 @@ class Cancion:
 
         query = """
             SELECT
-                canciones.id_cancion AS cancion_id,
+                canciones.id AS cancion_id,
                 canciones.titulo AS cancion_titulo,
                 canciones.artista AS cancion_artista,
                 canciones.created_at AS cancion_created_at,
@@ -120,12 +120,12 @@ class Cancion:
             FROM canciones
 
             LEFT JOIN favoritos
-                ON favoritos.cancion_id = canciones.id_cancion
+                ON favoritos.cancion_id = canciones.id
 
             LEFT JOIN usuarios
                 ON favoritos.usuario_id = usuarios.id
 
-            WHERE canciones.id_cancion = %(id_cancion)s;
+            WHERE canciones.id = %(id)s;
         """
 
         resultados = connectToMySQL(
@@ -136,12 +136,12 @@ class Cancion:
             return None
 
         cancion_data = {
-            "id_cancion ": resultados[0]["cancion_id"],
+            "id": resultados[0]["cancion_id"],
             "titulo": resultados[0]["cancion_titulo"],
             "artista": resultados[0]["cancion_artista"],
             "created_at": resultados[0]["cancion_created_at"],
             "updated_at": resultados[0]["cancion_updated_at"]
-        }   
+        }
 
         cancion = cls(cancion_data)
 
