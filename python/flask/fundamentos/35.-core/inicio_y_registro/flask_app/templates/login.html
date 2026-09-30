@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro e Inicio de Sesión</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+</head>
+
+<body>
+
+    <!-- Sección de Registro -->
+    <h2>Registro</h2>
+
+    {% with messages = get_flashed_messages(category_filter=["nombre", "apellido", "email", "password", "confirm_password", "general"]) %}
+    {% if messages %}
+    <div class="flashes">
+        {% for message in messages %}
+        <p style="color: red;">{{ message }}</p>
+        {% endfor %}
+    </div>
+    {% endif %}
+    {% endwith %}
+
+    <!-- AQUÍ SE CORRIGIÓ DE /register A /registrar -->
+    <form action="/registrar" method="POST">
+        <div>
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" name="nombre" required>
+        </div>
+        <div>
+            <label for="apellido">Apellido</label>
+            <input type="text" id="apellido" name="apellido" required>
+        </div>
+        <div>
+            <label for="email_reg">E-mail</label>
+            <input type="email" id="email_reg" name="email" required>
+        </div>
+        <div>
+            <label for="password_reg">Contraseña</label>
+            <input type="password" id="password_reg" name="password" required>
+        </div>
+        <div>
+            <label for="confirm_password">Conf. Contraseña</label>
+            <input type="password" id="confirm_password" name="confirm_password" required>
+        </div>
+        <button type="submit">Registrar</button>
+    </form>
+
+    <hr>
+
+    <!-- Sección de Inicio de Sesión -->
+    <h2>Inicio de Sesión</h2>
+
+    {% with messages = get_flashed_messages(category_filter=["login"]) %}
+    {% if messages %}
+    <div class="flashes">
+        {% for message in messages %}
+        <p style="color: red;">{{ message }}</p>
+        {% endfor %}
+    </div>
+    {% endif %}
+    {% endwith %}
+
+    <form action="/login" method="POST">
+        <div>
+            <label for="email_login">E-mail</label>
+            <input type="email" id="email_login" name="email" required>
+        </div>
+        <div>
+            <label for="password_login">Contraseña</label>
+            <input type="password" id="password_login" name="password" required>
+        </div>
+        <button type="submit">Iniciar Sesión</button>
+    </form>
+
+</body>
+
+</html>
