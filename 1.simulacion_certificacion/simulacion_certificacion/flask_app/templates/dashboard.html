@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookHub - Mis Libros</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <!-- Navegación Principal -->
+    <header>
+        <nav class="navbar">
+            <a href="/" class="brand">BookHub</a>
+            <ul class="nav-links">
+                <li><a href="/mis-libros">Mis libros</a></li>
+                <li><a href="/perfil">Perfil</a></li>
+                <li><a href="/logout">Cerrar Sesión</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+
+        <!-- SECCIÓN 1: MIS LIBROS -->
+        <section class="books-section">
+            <div class="section-header">
+                <h2>Mis libros</h2>
+                <a href="/libros/nuevo" class="btn btn-primary">+ Agregar libro</a>
+            </div>
+
+            <table class="books-table">
+                <thead>
+                    <tr>
+                        <th>Título</th>
+                        <th>Autor</th>
+                        <th>Agregado por</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for libro in mis_libros %}
+                        <tr>
+                            <td>{{ libro.titulo }}</td>
+                            <td>{{ libro.autor }}</td>
+                            <td>{{ libro.creador_nombre }}</td>
+                            <td>
+                                <a href="/libros/{{ libro.id_libro }}">Ver</a>
+                                {% if libro.id_usuario == session['id_usuario'] %}
+                                    | <a href="/libros/{{ libro.id_libro }}/editar">Editar</a>
+                                    | <a href="/libros/{{ libro.id_libro }}/eliminar">Eliminar</a>
+                                {% else %}
+                                    | <a href="/libros/{{ libro.id_libro }}/quitar_mi_lista">Quitar de mi lista</a>
+                                {% endif %}
+                            </td>
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <td colspan="4" class="no-data">No tienes libros agregados a tu lista.</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </section>
+
+        <!-- SECCIÓN 2: LIBROS DE LA COMUNIDAD -->
+        <section class="books-section">
+            <h2>Libros de la Comunidad</h2>
+
+            <table class="books-table">
+                <thead>
+                    <tr>
+                        <th>Título</th>
+                        <th>Autor</th>
+                        <th>Agregado por</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for libro in libros_comunidad %}
+                        <tr>
+                            <td>{{ libro.titulo }}</td>
+                            <td>{{ libro.autor }}</td>
+                            <td>{{ libro.creador_nombre }}</td>
+                            <td>
+                                <a href="/libros/{{ libro.id_libro }}">Ver</a> |
+                                <a href="/libros/{{ libro.id_libro }}/agregar_mi_lista">Agregar a mi lista</a>
+                            </td>
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <td colspan="4" class="no-data">No hay más libros disponibles en la comunidad.</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 BookHub - Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>

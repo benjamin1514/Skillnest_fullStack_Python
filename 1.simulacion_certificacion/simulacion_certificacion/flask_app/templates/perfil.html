@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookHub - Perfil de Usuario</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <!-- Navegación Principal -->
+    <header>
+        <nav class="navbar">
+            <a href="/" class="brand">BookHub</a>
+            <ul class="nav-links">
+                <li><a href="/mis-libros">Mis libros</a></li>
+                <li><a href="/perfil">Perfil</a></li>
+                <li><a href="/logout">Cerrar Sesión</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+
+        <section class="profile-card">
+            <h2>Perfil de Usuario</h2>
+
+            <div class="profile-info">
+                <p><strong>Nombre:</strong> {{ usuario.nombre }} {{ usuario.apellido }}</p>
+                <p><strong>Correo electrónico:</strong> {{ usuario.email }}</p>
+                <p><strong>Miembro desde:</strong> {{ usuario.created_at.strftime('%Y-%m-%d') }}</p>
+            </div>
+
+            <div class="form-actions">
+                <a href="/mis-libros" class="btn btn-secondary">Volver al Dashboard</a>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 BookHub - Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>

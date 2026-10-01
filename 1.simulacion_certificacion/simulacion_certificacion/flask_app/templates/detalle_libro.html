@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookHub - {{ libro.titulo }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <!-- Navegación Principal -->
+    <header>
+        <nav class="navbar">
+            <a href="/" class="brand">BookHub</a>
+            <ul class="nav-links">
+                <li><a href="/mis-libros">Mis libros</a></li>
+                <li><a href="/perfil">Perfil</a></li>
+                <li><a href="/logout">Cerrar Sesión</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+
+        <article class="book-detail-card">
+            <h2>{{ libro.titulo }}</h2>
+
+            <div class="book-info">
+                <p><strong>Autor:</strong> {{ libro.autor }}</p>
+                <p><strong>Género:</strong> {{ libro.genero }}</p>
+                <p><strong>Agregado por:</strong> {{ libro.creador_nombre }}</p>
+            </div>
+
+            <div class="book-description">
+                <h3>Descripción:</h3>
+                <p>{{ libro.descripcion }}</p>
+            </div>
+
+            <div class="form-actions">
+                <a href="/mis-libros" class="btn btn-secondary">Volver al Dashboard</a>
+            </div>
+        </article>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 BookHub - Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>

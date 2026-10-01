@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookHub - Registro e Inicio de Sesión</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <!-- Encabezado Principal -->
+    <header class="auth-header">
+        <h1>BookHub</h1>
+        <p>Añade y administra tus libros favoritos</p>
+    </header>
+
+    <!-- Contenedor Principal de Formularios -->
+    <main class="auth-container">
+
+        <!-- SECCIÓN DE REGISTRO -->
+        <section class="auth-card">
+            <h2>Crear Cuenta</h2>
+
+            <!-- Mensajes Flash de Registro -->
+            {% with messages = get_flashed_messages(category_filter=['registro']) %}
+                {% if messages %}
+                    <ul class="alerts error">
+                        {% for msg in messages %}
+                            <li>{{ msg }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            {% endwith %}
+
+            <form action="{{ url_for('registro') }}" method="POST">
+                <div class="form-group">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" name="nombre" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="apellido">Apellido:</label>
+                    <input type="text" id="apellido" name="apellido" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email_registro">Email:</label>
+                    <input type="email" id="email_registro" name="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="password_registro">Contraseña:</label>
+                    <input type="password" id="password_registro" name="password" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="confirm_password">Confirmar Contraseña:</label>
+                    <input type="password" id="confirm_password" name="confirm_password" required>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Registrarse</button>
+            </form>
+        </section>
+
+        <!-- SECCIÓN DE INICIO DE SESIÓN -->
+        <section class="auth-card">
+            <h2>Iniciar Sesión</h2>
+
+            <!-- Mensajes Flash de Login -->
+            {% with messages = get_flashed_messages(category_filter=['login']) %}
+                {% if messages %}
+                    <ul class="alerts error">
+                        {% for msg in messages %}
+                            <li>{{ msg }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            {% endwith %}
+
+            <form action="{{ url_for('login') }}" method="POST">
+                <div class="form-group">
+                    <label for="email_login">Email:</label>
+                    <input type="email" id="email_login" name="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="password_login">Contraseña:</label>
+                    <input type="password" id="password_login" name="password" required>
+                </div>
+
+                <button type="submit" class="btn btn-secondary">Iniciar Sesión</button>
+            </form>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 BookHub - Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>

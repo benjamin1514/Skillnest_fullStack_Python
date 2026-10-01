@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookHub - Agregar Nuevo Libro</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <!-- Navegación Principal -->
+    <header>
+        <nav class="navbar">
+            <a href="/" class="brand">BookHub</a>
+            <ul class="nav-links">
+                <li><a href="/mis-libros">Mis libros</a></li>
+                <li><a href="/perfil">Perfil</a></li>
+                <li><a href="/logout">Cerrar Sesión</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+
+        <section class="form-card">
+            <h2>Agregar nuevo libro</h2>
+
+            <!-- Mensajes Flash de Libro -->
+            {% with messages = get_flashed_messages(category_filter=['libro']) %}
+                {% if messages %}
+                    <ul class="alerts error">
+                        {% for msg in messages %}
+                            <li>{{ msg }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            {% endwith %}
+
+            <form action="{{ url_for('agregar_libro') }}" method="POST">
+                
+                <div class="form-group">
+                    <label for="titulo">Título:</label>
+                    <input type="text" id="titulo" name="titulo" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="autor">Autor:</label>
+                    <input type="text" id="autor" name="autor" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="genero">Género:</label>
+                    <input type="text" id="genero" name="genero" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="descripcion">Descripción:</label>
+                    <textarea id="descripcion" name="descripcion" rows="4" placeholder="Escribe una breve descripción del libro..."></textarea>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">Guardar libro</button>
+                    <a href="/mis-libros" class="btn btn-secondary">Cancelar</a>
+                </div>
+
+            </form>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 BookHub - Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>
