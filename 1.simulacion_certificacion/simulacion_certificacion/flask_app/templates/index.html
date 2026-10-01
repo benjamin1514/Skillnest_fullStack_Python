@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BookHub - Registro e Inicio de Sesión</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
+
 <body>
 
     <!-- Encabezado Principal -->
@@ -23,13 +25,13 @@
 
             <!-- Mensajes Flash de Registro -->
             {% with messages = get_flashed_messages(category_filter=['registro']) %}
-                {% if messages %}
-                    <ul class="alerts error">
-                        {% for msg in messages %}
-                            <li>{{ msg }}</li>
-                        {% endfor %}
-                    </ul>
-                {% endif %}
+            {% if messages %}
+            <ul class="alerts error">
+                {% for msg in messages %}
+                <li>{{ msg }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
             {% endwith %}
 
             <form action="{{ url_for('registro') }}" method="POST">
@@ -68,13 +70,13 @@
 
             <!-- Mensajes Flash de Login -->
             {% with messages = get_flashed_messages(category_filter=['login']) %}
-                {% if messages %}
-                    <ul class="alerts error">
-                        {% for msg in messages %}
-                            <li>{{ msg }}</li>
-                        {% endfor %}
-                    </ul>
-                {% endif %}
+            {% if messages %}
+            <ul class="alerts error">
+                {% for msg in messages %}
+                <li>{{ msg }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
             {% endwith %}
 
             <form action="{{ url_for('login') }}" method="POST">
@@ -99,4 +101,5 @@
     </footer>
 
 </body>
+
 </html>

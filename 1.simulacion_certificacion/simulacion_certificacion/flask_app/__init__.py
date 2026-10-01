@@ -1,10 +1,12 @@
 
-
-import os
-from dotenv import load_dotenv
 from flask import Flask
+from flask_bcrypt import Bcrypt
+from dotenv import load_dotenv
+import os
 
 load_dotenv()
 
 app = Flask(__name__)
 app.secret_key = os.getenv('SECRET_KEY', 'clave_secreta_por_defecto')
+
+bcrypt = Bcrypt(app)

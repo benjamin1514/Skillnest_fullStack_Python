@@ -1,9 +1,8 @@
 from flask import flash, redirect, render_template, request, session
-from flask_app import app
+from flask_app import app, bcrypt
 from flask_app.models.usuario import Usuario
-from flask_bcrypt import Bcrypt
 
-bcrypt = Bcrypt(app)
+
 
 
 @app.route('/')

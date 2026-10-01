@@ -1,3 +1,4 @@
+from datetime import datetime
 from flask import flash, redirect, render_template, request, session
 from flask_app import app
 from flask_app.models.genero import Genero
@@ -53,7 +54,7 @@ def crear_libro():
   return redirect('/dashboard')
 
 
-@app.route('/libros/')
+@app.route('/libros/<int:id_libro>')
 def ver_libro(id_libro):
   if 'id_usuario' not in session:
     return redirect('/')
@@ -65,22 +66,25 @@ def ver_libro(id_libro):
   return render_template('detalle_libro.html', libro=libro)
 
 
-@app.route('/libros//editar')
-def editar_libro(id_libro):
-  if 'id_usuario' not in session:
-    return redirect('/')
+@app.route('/libros/<int:id>/editar')
+def editar_libro(id):
+    if 'id_usuario' not in session:
+        return redirect('/')
 
-  libro = Libro.get_by_id({'id_libro': id_libro})
+    libro = Libro.obtener_por_id({'id': id})
 
-  # Seguridad: solo el creador puede editar el libro
-  if not libro or libro.id_usuario != session['id_usuario']:
-    return redirect('/dashboard')
+    # Verificar que el libro pertenezca al usuario en sesión
+    if not libro or libro['id_usuario'] != session['id_usuario']:
+        return redirect('/libros')
 
-  generos = Genero.get_all()
-  return render_template('editar_libro.html', libro=libro, generos=generos)
+    # Convertir fecha a string YYYY-MM-DD si viene como objeto datetime/date
+    if hasattr(libro['fecha_publicacion'], 'strftime'):
+        libro['fecha_publicacion'] = libro['fecha_publicacion'].strftime('%Y-%m-%d')
+
+    return render_template('editar_libro.html', libro=libro)
 
 
-@app.route('/libros//actualizar', methods=['POST'])
+@app.route('/libros/<int:id_libro>/actualizar', methods=['POST'])
 def actualizar_libro(id_libro):
   if 'id_usuario' not in session:
     return redirect('/')
@@ -101,7 +105,7 @@ def actualizar_libro(id_libro):
   return redirect('/dashboard')
 
 
-@app.route('/libros//agregar_mi_lista')
+@app.route('/libros/<int:id_libro>/agregar_mi_lista')
 def agregar_a_mi_lista(id_libro):
   if 'id_usuario' not in session:
     return redirect('/')
@@ -111,7 +115,7 @@ def agregar_a_mi_lista(id_libro):
   return redirect('/dashboard')
 
 
-@app.route('/libros//quitar_mi_lista')
+@app.route('/libros/<int:id_libro>/quitar_mi_lista')
 def quitar_de_mi_lista(id_libro):
   if 'id_usuario' not in session:
     return redirect('/')
@@ -121,7 +125,7 @@ def quitar_de_mi_lista(id_libro):
   return redirect('/dashboard')
 
 
-@app.route('/libros//eliminar')
+@app.route('/libros/<int:id_libro>/eliminar')
 def eliminar_libro(id_libro):
   if 'id_usuario' not in session:
     return redirect('/')
@@ -130,3 +134,17 @@ def eliminar_libro(id_libro):
 
   Libro.delete(data)
   return redirect('/dashboard')
+
+
+@staticmethod
+def validar_libro(data):
+    es_valido = True
+
+    if data.get('fecha_publicacion'):
+        fecha_ingresada = datetime.strptime(data['fecha_publicacion'], '%Y-%m-%d').date()
+        fecha_actual = datetime.now().date()
+        if fecha_ingresada > fecha_actual:
+            flash("La fecha de publicación no puede ser futura.", "libro")
+            es_valido = False
+
+    return es_valido

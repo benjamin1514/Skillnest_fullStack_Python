@@ -11,10 +11,10 @@
     <!-- Navegación Principal -->
     <header>
         <nav class="navbar">
-            <a href="/" class="brand">BookHub</a>
+            <a href="/dashboard" class="brand">BookHub</a>
             <ul class="nav-links">
-                <li><a href="/mis-libros">Mis libros</a></li>
-                <li><a href="/perfil">Perfil</a></li>
+                <li><a href="/dashboard">Mis libros</a></li>
+                <li><a href="/perfil" class="active">Perfil</a></li>
                 <li><a href="/logout">Cerrar Sesión</a></li>
             </ul>
         </nav>
@@ -28,11 +28,11 @@
             <div class="profile-info">
                 <p><strong>Nombre:</strong> {{ usuario.nombre }} {{ usuario.apellido }}</p>
                 <p><strong>Correo electrónico:</strong> {{ usuario.email }}</p>
-                <p><strong>Miembro desde:</strong> {{ usuario.created_at.strftime('%Y-%m-%d') }}</p>
+                <p><strong>Miembro desde:</strong> {{ usuario.created_at.strftime('%d/%m/%Y') if usuario.created_at else 'N/A' }}</p>
             </div>
 
             <div class="form-actions">
-                <a href="/mis-libros" class="btn btn-secondary">Volver al Dashboard</a>
+                <a href="/dashboard" class="btn btn-secondary">Volver al Dashboard</a>
             </div>
         </section>
 

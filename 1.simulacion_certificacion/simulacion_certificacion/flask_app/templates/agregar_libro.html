@@ -11,9 +11,9 @@
     <!-- Navegación Principal -->
     <header>
         <nav class="navbar">
-            <a href="/" class="brand">BookHub</a>
+            <a href="/dashboard" class="brand">BookHub</a>
             <ul class="nav-links">
-                <li><a href="/mis-libros">Mis libros</a></li>
+                <li><a href="/dashboard">Mis libros</a></li>
                 <li><a href="/perfil">Perfil</a></li>
                 <li><a href="/logout">Cerrar Sesión</a></li>
             </ul>
@@ -36,7 +36,7 @@
                 {% endif %}
             {% endwith %}
 
-            <form action="{{ url_for('agregar_libro') }}" method="POST">
+            <form action="/libros/crear" method="POST">
                 
                 <div class="form-group">
                     <label for="titulo">Título:</label>
@@ -49,8 +49,13 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="genero">Género:</label>
-                    <input type="text" id="genero" name="genero" required>
+                    <label for="id_genero">Género:</label>
+                    <select id="id_genero" name="id_genero" required>
+                        <option value="" disabled selected>Selecciona un género</option>
+                        {% for genero in generos %}
+                            <option value="{{ genero.id_genero }}">{{ genero.genero }}</option>
+                        {% endfor %}
+                    </select>
                 </div>
 
                 <div class="form-group">
@@ -60,7 +65,7 @@
 
                 <div class="form-actions">
                     <button type="submit" class="btn btn-primary">Guardar libro</button>
-                    <a href="/mis-libros" class="btn btn-secondary">Cancelar</a>
+                    <a href="/dashboard" class="btn btn-secondary">Cancelar</a>
                 </div>
 
             </form>
