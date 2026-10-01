@@ -1,0 +1,6 @@
+Python
+Flask
+MySQL
+PyMySQL
+Jinja2
+Bootstrap 5
